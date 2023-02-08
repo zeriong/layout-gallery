@@ -1,70 +1,77 @@
-import React, {useRef, useState} from "react";
-import example from '../styles/example.png';
+import React, {useState} from "react";
+import deliveryPreview from '../styles/preview.png';
 import ready from '../styles/ready.png';
+import {useNavigate} from "react-router-dom";
 interface Iitem {
     name: string;
     desc: string;
     img: string;
+    path: string;
 }
 interface Iitems extends Array<Iitem> {}
 
 const item:Iitems = [
     {
-        name: "youtube",
-        desc: "글을 길게써서 넘치게 해봐야한다. 글자가 3줄 이후부터는 ... 으로 생략하는 기능을 넣어줬기 때문에 글이 넘치더라도 정상적으로 생략기능이 구현되어야 성공한 것이다. 가나다라마바사 아자차카 타파하 도레미파솔라시도레미파솔라시도레미파솔라시도레미파 솔라시도 떳다떳다 비행기 날아라 날아라 높이높이 날아라 우리비행기",
-        img: example,
+        name: "Food Delivery",
+        desc: "음식배달 웹페이지 레이아웃 레퍼런스이다. 제플린을 적극 사용하여 만든 레이아웃이다.",
+        img: deliveryPreview,
+        path: "/food-delivery-login",
     },
     {
         name: "FaceBook",
         desc: "페이스북을 클론한 것이다.",
         img: ready,
+        path: "/",
     },
     {
         name: "FaceBook",
         desc: "페이스북을 클론한 것이다.",
         img: ready,
+        path: "/",
     },
     {
         name: "FaceBook",
         desc: "페이스북을 클론한 것이다.",
         img: ready,
-    },
-    {
-        name: "FaceBook",
-        desc: "페이스북을 클론한 것이다.",
-        img: ready,
-    },
-    {
-        name: "FaceBook",
-        desc: "페이스북을 클론한 것이다.",
-        img: ready,
-    },
-    {
-        name: "FaceBook",
-        desc: "페이스북을 클론한 것이다.",
-        img: ready,
+        path: "/",
     },
 ];
 export const itemLength: number = item.length
-const ListDiv = (props: { i:number, val: {img: string, name: string, desc: string} }) => {
+const ListDiv = (props: { i:number, val: {img: string, name: string, desc: string, path:string} }) => {
     const [onMouse, setOnMouse] = useState<boolean>(false);
+    const navigate = useNavigate();
+    const onClick = () => {
+        navigate(props.val.path);
+    }
     return (
         <li
             key={props.i}
-            className="w-full max-w-[477px] md:w-1/3 h-[280px] md:h-[450px] transition-all duration-200 shadow-lg"
+            className="w-[382px] first:mt-6 md:first:mt-0 mx-auto md:w-full h-[300px] md:h-[450px] transition-all duration-200 shadow-lg cursor-pointer box-border"
             onMouseEnter={() => setOnMouse(true)}
             onMouseLeave={() => setOnMouse(false)}
+            onClick={onClick}
         >
-            <div className="w-full h-full bg-white rounded-lg overflow-hidden">
-                <img src={props.val.img} alt={""} className="h-4/6 w-full"/>
-                <section
-                    className={`${onMouse ? "bg-gray-800 text-white" : ""}
-                                    p-2 md:p-4 transition-all duration-300 h-full overflow-hidden`}
-                >
-                    <h1 className="text-[14px] md:text-xl font-bold mb-2 md:mb-4">
+            <div
+                className={
+                `transition-all duration-300 w-full h-full bg-white rounded-lg overflow-hidden justify-center text-white
+                ${onMouse ? "bg-white text-black" : "bg-primary-default"}`
+            }>
+                <img src={props.val.img} alt={""} className={`h-4/6 w-full`}/>
+                <section className="p-2 text-center md:p-4 h-2/6 overflow-hidden relative flex flex-col md:text-start md:items-start justify-center items-center">
+                    <div className="relative text-[14px] md:text-xl font-extrabold mb-2 md:mb-4 px-11 flex items-center">
+                        <div className="absolute flex justify-center items-center bg-gray-200 w-3 h-3 md:w-4 md:h-4 rounded-full left-7 md:left-5">
+                            <div
+                                className={`absolute w-2 h-2 md:w-3 md:h-3 bg-gray-300 rounded-full
+                            ${onMouse ? "bg-green-500" : ""}`
+                                }/>
+                            <div
+                                className={`m-auto w-2 h-2 md:w-3 md:h-3 bg-gray-300 rounded-full
+                            ${onMouse ? "animate-ping bg-green-500" : ""}`
+                                }/>
+                        </div>
                         {props.val.name}
-                    </h1>
-                    <h2 className="text-[10px] md:text-base h-fit line-clamp-3">
+                    </div>
+                    <h2 className="text-[10px] md:text-base h-fit line-clamp-3 px-8 md:px-5 mb-2 md:mb-4">
                         {props.val.desc}
                     </h2>
                 </section>
@@ -78,7 +85,7 @@ export const GalleryItem = () => {
             {
                 item.map((val,i,arr) => {
                     return (
-                        <ListDiv i={i} val={val}/>
+                        <ListDiv key={i} i={i} val={val}/>
                     )
                 })
             }

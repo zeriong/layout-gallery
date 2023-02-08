@@ -5,11 +5,31 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily:{
+        'nunito': ['Nunito Sans', 'sans-serif'],
+      },
       colors:{
-        'primaryBack': '#f5f5f5',
+        'landingBack': '#f5f5f5',
+        "neutral-white": "#ffffff",
+        "secondary-light": "#fff3ed",
+        "neutral-gray": "#83859c",
+        "neutral-black": "#2b2b43",
+        "primary-default": "#4e60ff",
+        "primary-hover": "#697bff",
+        "primary-lightest": "#f8f9ff",
+        "neutral-gray-light": "#c7c8d2",
+        "neutral-gray-lightest": "#edeef2",
+        "black-100": "#25282b",
+        "error-default": "#ff5c60",
+        "secondary-default": "#fd6d22",
+        "neutral-gray-dark": "#545563",
+        "primary-light": "#f3f4ff"
       },
       width:{
-        'pageMax-width': '1540px',
+        'pageMax': '1540px',
+      },
+      maxWidth:{
+        'pageMax': '1540px',
       },
       height:{
         'header-height' : '116px',
