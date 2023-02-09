@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily:{
-        'nunito': ['Nunito Sans', 'sans-serif'],
+        'nunito': ['Nunito', 'sans-serif'],
       },
       colors:{
         'landingBack': '#f5f5f5',

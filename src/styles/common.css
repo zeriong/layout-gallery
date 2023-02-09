@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
-@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900;1000&display=swap");
 
 html {
     width: 100%;
@@ -13,7 +13,7 @@ html {
 body {
     /*@apply text-*/
     font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Nunito Sans',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Nunito',
     sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -42,7 +42,7 @@ input, input:focus, input:active {
 }
 
 .custom-scroll::-webkit-scrollbar{
-    width: 6px;
+    width: 10px;
 }
 .custom-scroll::-webkit-scrollbar-thumb{
     height: 50%;
@@ -85,48 +85,48 @@ input, input:focus, input:active {
 }
 
 
-.h1-bold-60-82-01px {
-    @apply text-5xl font-nunito leading-tight font-bold;
+.h1---bold-60-82-01px {
+    @apply text-6xl font-nunito leading-tight font-bold;
 }
-.h2-extrabold-40-56-01px {
+.h2---extrabold-40-56-01px {
     @apply text-4xl font-nunito leading-normal font-extrabold;
 }
-.h3-bold-32-42-01px {
+.h3---bold-32-42-01px {
     @apply text-3xl font-nunito leading-tight font-bold;
 }
-.h4-extrabold-24-32-01px {
+.h4---extrabold-24-32-01px {
     @apply text-2xl font-nunito leading-tight font-extrabold;
 }
-.h5-semibold-20-28-01px {
+.h5---semibold-20-28-01px {
     @apply text-xl font-nunito leading-normal font-semibold;
 }
-.h6-bold-18-24-01px {
+.h6---bold-18-24-01px {
     @apply text-lg font-nunito leading-tight font-bold;
 }
-.button-1-bold-14-20-04px {
+.button-1---bold-14-20-04px {
     @apply text-sm font-nunito leading-normal font-bold;
 }
-.subtitle-1-bold-14-20-01px {
+.subtitle-1---bold-14-20-01px {
     @apply text-sm font-nunito leading-normal font-bold;
 }
-.body-1-regular-14-20-01px {
+.body-1---regular-14-20-01px {
     @apply text-sm font-nunito leading-normal;
 }
-.small-1-bold-13-18-01px {
+.small-1---bold-13-18-01px {
     @apply text-xs font-nunito leading-normal font-bold;
 }
-.subtitle-2-semibold-13-18-0px {
+.subtitle-2---semibold-13-18-0px {
     @apply text-xs font-nunito leading-normal font-semibold;
 }
-.body-2-regular-13-18-02px {
+.body-2---regular-13-18-02px {
     @apply text-xs font-nunito leading-normal;
 }
-.small-2-semibold-12-16-0px {
+.small-2---semibold-12-16-0px {
     @apply text-xs font-nunito leading-tight font-semibold;
 }
-.caption-bold-11-16-06px-caps {
+.caption---bold-11-16-06px-caps {
     @apply text-xs font-nunito leading-normal tracking-wide font-bold;
 }
-.small-3-bold-10-14-0px {
+.small-3---bold-10-14-0px {
     @apply text-xs font-nunito leading-normal font-bold;
 }
