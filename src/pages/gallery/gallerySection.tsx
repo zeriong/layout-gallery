@@ -1,6 +1,6 @@
 import React from "react";
-import deliveryPreview from "../../styles/delivery-img/delivery-preview.png";
-import ready from "../../styles/ready.png";
+import deliveryPreview from "../../assets/delivery-img/delivery-preview.png";
+import ready from "../../assets/ready.png";
 import {GalleryItems} from "../../components/galleryItem";
 interface Iitem {
     name: string;
