@@ -127,3 +127,68 @@ input, input:focus, input:active {
 .small-3---bold-10-14-0px {
     @apply leading-normal font-bold;
 }
+
+
+.z-row {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 1 auto;
+}
+.z-col {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+}
+.z-col-auto {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: 100%;
+}
+.z-col-1 {
+    flex: 0 0 8.3333333333%;
+    max-width: 8.3333333333%;
+}
+.z-col-2 {
+    flex: 0 0 16.6666666667%;
+    max-width: 16.6666666667%;
+}
+.z-col-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+.z-col-4 {
+    flex: 0 0 33.3333333333%;
+    max-width: 33.3333333333%;
+}
+.z-col-5 {
+    flex: 0 0 41.6666666667%;
+    max-width: 41.6666666667%;
+}
+.z-col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+.z-col-7 {
+    flex: 0 0 58.3333333333%;
+    max-width: 58.3333333333%;
+}
+.z-col-8 {
+    flex: 0 0 66.6666666667%;
+    max-width: 66.6666666667%;
+}
+.z-col-9 {
+    flex: 0 0 75%;
+    max-width: 75%;
+}
+.z-col-10 {
+    flex: 0 0 83.3333333333%;
+    max-width: 83.3333333333%;
+}
+.z-col-11 {
+    flex: 0 0 91.6666666667%;
+    max-width: 91.6666666667%;
+}
+.z-col-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
