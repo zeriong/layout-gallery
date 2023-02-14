@@ -199,12 +199,12 @@ export const AccSettings = () => {
                             <figure className="mr-6">
                                 <img src={avatar} alt=""/>
                             </figure>
-                            <div className="cursor-pointer py-3 px-4 rounded-lg text-sm font-bold text-primary-default border border-primary-default mr-4">
+                            <button className="cursor-pointer py-3 px-4 rounded-lg text-sm font-bold text-primary-default border border-primary-default mr-4">
                                 Change
-                            </div>
-                            <div className="cursor-pointer py-3 px-4 rounded-lg text-sm font-bold text-neutral-gray">
+                            </button>
+                            <button className="cursor-pointer py-3 px-4 rounded-lg text-sm font-bold text-neutral-gray">
                                 Remove
-                            </div>
+                            </button>
                         </div>
                     </div>
                     <form className="grid grid-cols-1 sm:grid-cols-2 gap-y-[32px] gap-x-[16px] mb-[68px]">
@@ -228,21 +228,21 @@ export const AccSettings = () => {
                             })
                         }
                     </ul>
-                    <div onClick={logout} className="cursor-pointer flex sm:hidden border border-error-default rounded-xl justify-center py-3 px-4 bg-white text-sm font-bold text-error-default mb-5">
+                    <button onClick={logout} className="cursor-pointer flex sm:hidden border border-error-default rounded-xl justify-center py-3 px-4 bg-white text-sm font-bold text-error-default mb-5">
                         Log out
-                    </div>
+                    </button>
                 </div>
                 <div className="flex justify-between border-b border-x rounded-b-2xl border-neutral-gray-lightest py-5 px-4">
-                    <div onClick={logout} className="cursor-pointer hidden sm:flex border border-error-default rounded-lg justify-center items-center py-3 px-4 bg-white text-sm font-bold text-error-default">
+                    <button onClick={logout} className="cursor-pointer hidden sm:flex border border-error-default rounded-lg justify-center items-center py-3 px-4 bg-white text-sm font-bold text-error-default">
                         Log out
-                    </div>
+                    </button>
                     <div className="w-full sm:w-auto flex gap-[16px]">
-                        <div onClick={goHome} className="cursor-pointer w-full sm:w-auto flex border border-error-default rounded-lg justify-center items-center py-3 px-4 bg-white text-sm font-bold text-error-default">
+                        <button onClick={goHome} className="cursor-pointer w-full sm:w-auto flex border border-error-default rounded-lg justify-center items-center py-3 px-4 bg-white text-sm font-bold text-error-default">
                             Discard changes
-                        </div>
-                        <div onClick={goHome} className="cursor-pointer w-full sm:w-auto flex rounded-lg justify-center items-center py-3 px-4 bg-primary-default text-sm font-bold text-white">
+                        </button>
+                        <button onClick={goHome} className="cursor-pointer w-full sm:w-auto flex rounded-lg justify-center items-center py-3 px-4 bg-primary-default text-sm font-bold text-white">
                             Save changes
-                        </div>
+                        </button>
                     </div>
                 </div>
             </article>
