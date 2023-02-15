@@ -9,9 +9,12 @@ html {
     height: 100%;
 }
 
+.delivery-font {
+    font-family: 'Nunito', sans-serif;
+}
+
 body {
     /*@apply text-*/
-    font-family: 'Nunito', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     width: 100%;
@@ -129,66 +132,39 @@ input, input:focus, input:active {
 }
 
 
-.z-row {
-    display: flex;
-    flex-wrap: wrap;
-    flex: 1 1 auto;
+.crypto-32px-bold {
+    font-size: 32px;
+    @apply leading-normal text-center tracking-wide font-bold;
 }
-.z-col {
-    flex-basis: 0;
-    flex-grow: 1;
-    max-width: 100%;
+.crypto-28px-bold {
+    font-size: 28px;
+    @apply text-3xl tracking-wide font-bold;
 }
-.z-col-auto {
-    flex: 0 0 auto;
-    width: auto;
-    max-width: 100%;
+.crypto-2xl-normal {
+    @apply text-2xl tracking-wide font-normal;
 }
-.z-col-1 {
-    flex: 0 0 8.3333333333%;
-    max-width: 8.3333333333%;
+.crypto-lg-bold {
+    @apply text-lg tracking-wide font-bold;
 }
-.z-col-2 {
-    flex: 0 0 16.6666666667%;
-    max-width: 16.6666666667%;
+.crypto-lg-md {
+    @apply text-lg tracking-wide font-medium;
 }
-.z-col-3 {
-    flex: 0 0 25%;
-    max-width: 25%;
+.crypto-lg-normal {
+    @apply text-lg text-center tracking-wide font-normal;
 }
-.z-col-4 {
-    flex: 0 0 33.3333333333%;
-    max-width: 33.3333333333%;
+.crypto-sm-bold {
+    @apply text-sm leading-normal text-right tracking-wide font-bold;
 }
-.z-col-5 {
-    flex: 0 0 41.6666666667%;
-    max-width: 41.6666666667%;
+.crypto-sm-md {
+    @apply text-sm leading-normal tracking-wide font-medium;
 }
-.z-col-6 {
-    flex: 0 0 50%;
-    max-width: 50%;
+.crypto-sm-normal {
+    @apply text-sm text-center font-normal;
 }
-.z-col-7 {
-    flex: 0 0 58.3333333333%;
-    max-width: 58.3333333333%;
+.crypto-xs-normal {
+    @apply text-xs tracking-wide font-normal;
 }
-.z-col-8 {
-    flex: 0 0 66.6666666667%;
-    max-width: 66.6666666667%;
-}
-.z-col-9 {
-    flex: 0 0 75%;
-    max-width: 75%;
-}
-.z-col-10 {
-    flex: 0 0 83.3333333333%;
-    max-width: 83.3333333333%;
-}
-.z-col-11 {
-    flex: 0 0 91.6666666667%;
-    max-width: 91.6666666667%;
-}
-.z-col-12 {
-    flex: 0 0 100%;
-    max-width: 100%;
+.crypto-10px-normal {
+    font-size: 10px;
+    @apply text-xs;
 }

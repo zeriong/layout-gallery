@@ -264,7 +264,7 @@ const RestaurantList = ( props: {
     )
 }
 
-export const Home = () => {
+export const DeliveryHome = () => {
     //const navigate = useNavigate();
     return (
         <section>

@@ -38,7 +38,18 @@ module.exports = {
         "error-default": "#ff5c60",
         "secondary-default": "#fd6d22",
         "neutral-gray-dark": "#545563",
-        "primary-light": "#f3f4ff"
+        "primary-light": "#f3f4ff",
+
+        "crypto-dark": "#1b232a",
+        "crypto-seafoam-blue": "#5ed5a8",
+        "crypto-pale-red": "#dd4b4b",
+        "crypto-pale-grey": "#f1f4f6",
+        "crypto-white": "#ffffff",
+        "crypto-cool-grey": "#a7afb7",
+        "crypto-dark-two": "#161c22",
+        "crypto-warm-grey": "#777777",
+        "crypto-silver": "#c1c7cd",
+        "crypto-dark-three": "#171d22"
       },
       width:{
         'pageMax': '1540px',
