@@ -49,7 +49,8 @@ module.exports = {
         "crypto-dark-two": "#161c22",
         "crypto-warm-grey": "#777777",
         "crypto-silver": "#c1c7cd",
-        "crypto-dark-three": "#171d22"
+        "crypto-dark-three": "#171d22",
+        "crypto-ball-dark": "#252e35",
       },
       width:{
         'pageMax': '1540px',

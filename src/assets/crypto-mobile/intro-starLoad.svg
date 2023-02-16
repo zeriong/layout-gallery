@@ -1,0 +1,30 @@
+<svg width="414" height="489" viewBox="0 0 414 489" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g opacity="0.5">
+<circle cx="8.47446" cy="338.593" r="1.20298" transform="rotate(-90 8.47446 338.593)" fill="#777777"/>
+<circle cx="28.5252" cy="331.776" r="1.20298" transform="rotate(-90 28.5252 331.776)" fill="#777777"/>
+<circle cx="28.9256" cy="351.825" r="1.20298" transform="rotate(-90 28.9256 351.825)" fill="#777777"/>
+<path d="M29.1267 331.977L8.67607 338.392M29.1267 331.977L-15.3835 322.553M29.1267 331.977L29.1267 351.425L8.67607 338.392M8.67607 338.392L-20.7969 382.101L-15.3835 322.553M8.67607 338.392L-15.3835 322.553" stroke="#777777" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g opacity="0.5">
+<path d="M343 108.35L374.5 139.85L395 110.85V56.3496L343 108.35Z" stroke="#777777" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="396" cy="55.3496" r="3" fill="#777777"/>
+<circle cx="374" cy="140.35" r="3" fill="#777777"/>
+<circle cx="396" cy="110.35" r="3" fill="#777777"/>
+<circle cx="343" cy="108.35" r="3" fill="#777777"/>
+</g>
+<g opacity="0.5">
+<path d="M399 378.35L446 405.35L388.689 425.33L399 486.35L352 459.35V405.35L399 378.35Z" stroke="#777777" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="399" cy="379.35" r="3" fill="#777777"/>
+<circle cx="390" cy="425.35" r="3" fill="#777777"/>
+<circle cx="399" cy="485.35" r="3" fill="#777777"/>
+<circle cx="352" cy="459.35" r="3" fill="#777777"/>
+<circle cx="352" cy="405.35" r="3" fill="#777777"/>
+</g>
+<g opacity="0.5">
+<circle cx="42.6629" cy="11.7906" r="3" transform="rotate(40.9501 42.6629 11.7906)" fill="#777777"/>
+<circle cx="39.4735" cy="36.8278" r="3" transform="rotate(40.9501 39.4735 36.8278)" fill="#777777"/>
+<circle cx="11.4149" cy="31.0162" r="3" transform="rotate(40.9501 11.4149 31.0162)" fill="#777777"/>
+<circle cx="-3.17107" cy="75.2906" r="3" transform="rotate(40.9501 -3.17107 75.2906)" fill="#777777"/>
+<path d="M12.1703 31.6721L42.6622 11.7913L39.8503 37.1555M12.1703 31.6721L39.8503 37.1555M12.1703 31.6721L-3.77764 76.7516L39.8503 37.1555" stroke="#777777" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</svg>

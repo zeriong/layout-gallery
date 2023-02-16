@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900;1000&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 html {
     width: 100%;
     height: 100%;
@@ -11,6 +11,9 @@ html {
 
 .delivery-font {
     font-family: 'Nunito', sans-serif;
+}
+.crypto-font {
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
@@ -56,6 +59,13 @@ input, input:focus, input:active {
 
 .scroll-hidden::-webkit-scrollbar {
     display: none;
+}
+
+.crypto-stars {
+    background: url("../assets/crypto-mobile/intro-stars.svg") repeat center top / 100% 60%;
+}
+.crypto-starLoad {
+    background: url("../assets/crypto-mobile/intro-starLoad.svg") no-repeat center / 100%;
 }
 
 .text-line-1 {

@@ -5,9 +5,9 @@ import {Nav} from "./nav";
 
 export const CryptoLayout = () => {
     return (
-        <div className="w-full">
+        <div className="w-full h-full crypto-font">
             <Header/>
-            <main className="w-full sm:w-[1140px] h-auto pt-[104px] pb-6 px-[15px] mx-auto">
+            <main className="max-w-[420px] h-full overflow-auto">
                 <Outlet/>
             </main>
             <Nav/>
