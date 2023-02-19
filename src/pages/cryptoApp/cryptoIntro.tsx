@@ -43,11 +43,11 @@ const items:Iitems = [
 const IntroItem = (props: { img:string, title:string, summary:string }) => {
     return (
         <div className="w-full flex flex-col min-w-full transition-all duration-300">
-            <figure className="relative w-full h-[55%] z-10">
-                <img src={props.img} className="absolute left-1/2 -translate-x-1/2 w-4/5 h-auto mt-[93px]" alt=""/>
-                <div className="absolute w-full h-[144px] mt-[336px] bg-gradient-to-t from-crypto-dark"/>
+            <figure className="relative w-full">
+                <img src={props.img} className="relative left-1/2 -translate-x-1/2 w-4/5 h-[30vh] mt-[93px]" alt=""/>
+                <div className="absolute w-full h-[35%] bg-gradient-to-t from-crypto-dark top-[70%]"/>
             </figure>
-            <div className="relative flex flex-col justify-between h-[45%] z-20">
+            <div className="relative flex flex-col justify-between mt-[5%]">
                 <div className="absolute h-full w-full bg-gradient-to-t from-crypto-dark-two -z-10"/>
                 <div className="w-full h-fit p-6 text-center">
                     <h1 className="crypto-2xl-normal text-white pb-6">
@@ -66,21 +66,21 @@ const TOTAL_SLIDES = items.length - 1;
 
 const Carousel = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
-    const [mouseDownClientX, setMouseDownClientX] = useState(0);
-    const [mouseDownClientY, setMouseDownClientY] = useState(0);
-    const [mouseUpClientX, setMouseUpClientX] = useState(0);
-    const [mouseUpClientY, setMouseUpClientY] = useState(0);
+    const [mouseDownX, setMouseDownX] = useState(0);
+    const [mouseDownY, setMouseDownY] = useState(0);
+    const [mouseUpX, setMouseUpX] = useState(0);
+    const [mouseUpY, setMouseUpY] = useState(0);
     const [tochedX, setTochedX] = useState(0);
     const [tochedY, setTochedY] = useState(0);
 
     const onMouseDown = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-        setMouseDownClientX(e.clientX);
-        setMouseDownClientY(e.clientY);
+        setMouseDownX(e.clientX);
+        setMouseDownY(e.clientY);
     };
 
     const onMouseUp = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-        setMouseUpClientX(e.clientX);
-        setMouseUpClientY(e.clientY);
+        setMouseUpX(e.clientX);
+        setMouseUpY(e.clientY);
     };
 
     const onTouchStart = (e: React.TouchEvent) => {
@@ -94,7 +94,9 @@ const Carousel = () => {
         const vector = Math.abs(distanceX / distanceY);
 
         if (distanceX > 30 && vector > 2) {
-
+            if (currentSlide === 2) {
+                return
+            }
             nextBtn();
         } else if (distanceX < -30 && vector > 2) {
             prevBtn();
@@ -105,7 +107,7 @@ const Carousel = () => {
         if (currentSlide >= TOTAL_SLIDES) {
             // 더 이상 넘어갈 슬라이드가 없으면
             //setCurrentSlide(0); // 1번째 사진으로 넘어갑니다.
-            return navigate('/crypto'); // 클릭이 작동하지 않습니다.
+            return navigate('/crypto-login-home');
         } else {
             setCurrentSlide(currentSlide + 1);
         }
@@ -121,22 +123,22 @@ const Carousel = () => {
     };
 
     useEffect(() => {
-        const dragSpaceX = Math.abs(mouseDownClientX - mouseUpClientX);
-        const dragSpaceY = Math.abs(mouseDownClientY - mouseUpClientY);
+        const dragSpaceX = Math.abs(mouseDownX - mouseUpX);
+        const dragSpaceY = Math.abs(mouseDownY - mouseUpY);
         const vector = dragSpaceX / dragSpaceY;
 
-        if (mouseDownClientX !== 0 && dragSpaceX > 100 && vector > 2) {
-            if (mouseUpClientX < mouseDownClientX) {
+        if (mouseDownX !== 0 && dragSpaceX > 100 && vector > 2) {
+            if (mouseUpX < mouseDownX) {
                 if (currentSlide === 2) {
                     return
                 }
                 nextBtn();
-            } else if (mouseUpClientX > mouseDownClientX) {
+            } else if (mouseUpX > mouseDownX) {
                 prevBtn();
             }
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [mouseUpClientX]);
+    }, [mouseUpX]);
 
     const navigate = useNavigate();
 
@@ -144,8 +146,8 @@ const Carousel = () => {
         <div className="relative transition-all duration-300 w-full h-full overflow-hidden select-none">
             <div
                 className={
-                `absolute transition-all duration-300 w-full h-full flex cursor-default 
-                ${currentSlide === 0 && "left-0"} -left-[${currentSlide}00%]`}
+                `absolute transition-all duration-300 w-full h-full flex cursor-default
+                ${currentSlide === 0 ? "left-0" : currentSlide === 1 ? "-left-full" : currentSlide === 2 ? "-left-[200%]" : ""}`}
                 onMouseUp={onMouseUp}
                 onMouseDown={onMouseDown}
                 onTouchStart={onTouchStart}
@@ -159,7 +161,7 @@ const Carousel = () => {
                     })
                 }
             </div>
-            <div className="fixed w-full bottom-0 flex flex-col items-center mb-[94px] z-20">
+            <div className="fixed w-full bottom-[7%] flex flex-col items-center z-20">
                 <ul className="grid grid-cols-3 justify-center gap-[8px]">
                     <li className={`w-3 h-3 rounded-full ${currentSlide === 0 ? "bg-crypto-warm-grey" : "bg-crypto-ball-dark"}`}/>
                     <li className={`w-3 h-3 rounded-full ${currentSlide === 1 ? "bg-crypto-warm-grey" : "bg-crypto-ball-dark"}`}/>
@@ -200,7 +202,7 @@ export const CryptoIntro = () => {
                         <div className="h-1/5 w-full bg-gradient-to-t from-crypto-seafoam-blue opacity-[15%]"/>
                     </div>
                 </article>
-                <article className="relative bg-crypto-dark w-auto h-full transition-all duration-500 overflow-y-hidden overflow-x-auto">
+                <article className="relative bg-crypto-dark w-full h-full transition-all duration-500 overflow-hidden">
                     <figure className="w-full h-full absolute">
                         <div className="absolute w-[210px] h-[194px] bg-crypto-seafoam-blue blur-[150px] left-[-125px] top-[-152px]"/>
                         <img src={starLoad1} className="absolute left-[29px] top-[200px]" alt=""/>

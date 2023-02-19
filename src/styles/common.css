@@ -169,7 +169,7 @@ input, input:focus, input:active {
     @apply text-sm leading-normal tracking-wide font-medium;
 }
 .crypto-sm-normal {
-    @apply text-sm text-center font-normal;
+    @apply text-sm font-normal;
 }
 .crypto-xs-normal {
     @apply text-xs tracking-wide font-normal;

@@ -5,12 +5,12 @@ import {Nav} from "./nav";
 
 export const CryptoLayout = () => {
     return (
-        <div className="w-full h-full crypto-font">
-            <Header/>
-            <main className="max-w-[420px] h-full overflow-auto">
+        <div className="w-full h-full crypto-font bg-gray-200">
+            <main className="max-w-[420px] h-full overflow-auto bg-crypto-dark m-auto">
+                <Header/>
                 <Outlet/>
+                <Nav/>
             </main>
-            <Nav/>
         </div>
     )
 }
