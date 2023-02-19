@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {useEffect, useState} from "react";
 
 import intro1 from "../../assets/crypto-mobile/intro-img1.svg";
 import intro2 from "../../assets/crypto-mobile/intro-img2.svg";
@@ -77,46 +77,29 @@ const Carousel = () => {
         setMouseDownClientX(e.clientX);
         setMouseDownClientY(e.clientY);
     };
+
     const onMouseUp = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
         setMouseUpClientX(e.clientX);
         setMouseUpClientY(e.clientY);
     };
+
     const onTouchStart = (e: React.TouchEvent) => {
         setTochedX(e.changedTouches[0].pageX);
         setTochedY(e.changedTouches[0].pageY);
     };
+
     const onTouchEnd = (e: React.TouchEvent) => {
         const distanceX = tochedX - e.changedTouches[0].pageX;
         const distanceY = tochedY - e.changedTouches[0].pageY;
         const vector = Math.abs(distanceX / distanceY);
 
         if (distanceX > 30 && vector > 2) {
-            if (currentSlide === 2) {
-                return
-            }
+
             nextBtn();
         } else if (distanceX < -30 && vector > 2) {
             prevBtn();
         }
     };
-    useEffect(() => {
-        const dragSpaceX = Math.abs(mouseDownClientX - mouseUpClientX);
-        const dragSpaceY = Math.abs(mouseDownClientY - mouseUpClientY);
-        const vector = dragSpaceX / dragSpaceY;
-
-        if (mouseDownClientX !== 0 && dragSpaceX > 100 && vector > 2) {
-            if (mouseUpClientX < mouseDownClientX) {
-                if (currentSlide === 2) {
-                    return
-                }
-                nextBtn();
-            } else if (mouseUpClientX > mouseDownClientX) {
-                prevBtn();
-            }
-        }
-    }, [mouseUpClientX]);
-
-    const navigate = useNavigate();
 
     const nextBtn = () => {
         if (currentSlide >= TOTAL_SLIDES) {
@@ -137,11 +120,31 @@ const Carousel = () => {
         }
     };
 
+    useEffect(() => {
+        const dragSpaceX = Math.abs(mouseDownClientX - mouseUpClientX);
+        const dragSpaceY = Math.abs(mouseDownClientY - mouseUpClientY);
+        const vector = dragSpaceX / dragSpaceY;
+
+        if (mouseDownClientX !== 0 && dragSpaceX > 100 && vector > 2) {
+            if (mouseUpClientX < mouseDownClientX) {
+                if (currentSlide === 2) {
+                    return
+                }
+                nextBtn();
+            } else if (mouseUpClientX > mouseDownClientX) {
+                prevBtn();
+            }
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [mouseUpClientX]);
+
+    const navigate = useNavigate();
+
     return (
-        <div className="relative transition-all duration-300 w-full h-full overflow-hidden">
+        <div className="relative transition-all duration-300 w-full h-full overflow-hidden select-none">
             <div
                 className={
-                `absolute transition-all duration-300 w-full h-full flex
+                `absolute transition-all duration-300 w-full h-full flex cursor-default 
                 ${currentSlide === 0 && "left-0"} -left-[${currentSlide}00%]`}
                 onMouseUp={onMouseUp}
                 onMouseDown={onMouseDown}
@@ -185,7 +188,7 @@ export const CryptoIntro = () => {
     },[])
 
     return (
-        <section className='absolute bg-gray-200 w-full h-full'>
+        <section className='absolute bg-gray-200 w-full h-full select-none'>
             <div className='absolute w-full h-full crypto-font max-w-[420px] left-1/2 -translate-x-1/2 overflow-hidden'>
                 <article className={`absolute left-1/2 -translate-x-1/2 bg-crypto-dark w-full h-full transition-all duration-[1.5s] visible z-50 opacity-100 ${popIntro ? "" : "invisible opacity-0"}`} onTransitionEnd={(e)=>{ return e.currentTarget.style.zIndex = "-20"}}>
                     <div className="relative w-full h-full">
