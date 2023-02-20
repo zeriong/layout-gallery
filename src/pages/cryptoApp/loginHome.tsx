@@ -67,7 +67,7 @@ export const CryptoLoginHome = () => {
                     className="mt-10 w-full relative z-20"
                     onSubmit={(e) => e.preventDefault()}
                 >
-                    <h1 className="w-full h-full flex text-white font-bold">
+                    <h1 className="w-full h-full flex text-white crypto-32px-bold">
                         {onSignIn ? "Sign in" : "Sign up"}
                     </h1>
                     <div className="mt-11">

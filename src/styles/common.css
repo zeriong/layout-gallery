@@ -143,12 +143,10 @@ input, input:focus, input:active {
 
 
 .crypto-32px-bold {
-    font-size: 32px;
-    @apply leading-normal text-center tracking-wide font-bold;
+    @apply text-32px leading-normal tracking-wide font-bold;
 }
 .crypto-28px-bold {
-    font-size: 28px;
-    @apply text-3xl tracking-wide font-bold;
+    @apply text-28px tracking-wide font-bold;
 }
 .crypto-2xl-normal {
     @apply text-2xl tracking-wide font-normal;
@@ -160,10 +158,10 @@ input, input:focus, input:active {
     @apply text-lg tracking-wide font-medium;
 }
 .crypto-lg-normal {
-    @apply text-lg text-center tracking-wide font-normal;
+    @apply text-lg tracking-wide font-normal;
 }
 .crypto-sm-bold {
-    @apply text-sm leading-normal text-right tracking-wide font-bold;
+    @apply text-sm leading-normal tracking-wide font-bold;
 }
 .crypto-sm-md {
     @apply text-sm leading-normal tracking-wide font-medium;
@@ -175,6 +173,5 @@ input, input:focus, input:active {
     @apply text-xs tracking-wide font-normal;
 }
 .crypto-10px-normal {
-    font-size: 10px;
-    @apply text-xs;
+    @apply text-10px font-normal;
 }
