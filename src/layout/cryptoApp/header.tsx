@@ -8,11 +8,8 @@ import profileIcon from "../../assets/crypto-mobile/profileIcon.svg";
 
 export const Header = () => {
     const navigate = useNavigate();
-    const onClick = () => {
-        navigate('acc-settings');
-    }
     return (
-        <header className="fixed justify-center flex w-full max-w-[420px] h-[95px] bg-white border-b border-b-neutral-gray-lightest z-10">
+        <header className="fixed justify-center flex w-full max-w-[420px] h-95px bg-white border-b border-b-neutral-gray-lightest z-10">
             <div className="fixed"></div>
             <div className="flex justify-between w-full">
                 <figure>

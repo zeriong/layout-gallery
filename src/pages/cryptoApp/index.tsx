@@ -1,5 +1,5 @@
 export const CryptoHome = () => {
     return (
-        <div className="mt-20 text-white">Home</div>
+        <div className="mt-80 text-white">Home</div>
     )
 }

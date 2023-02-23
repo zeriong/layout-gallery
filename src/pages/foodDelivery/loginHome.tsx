@@ -17,78 +17,39 @@ import minusIcon from "../../assets/delivery-img/minusIcon.svg";
 import filledBall from "../../assets/delivery-img/filled-ball.svg";
 import emptyBall from "../../assets/delivery-img/empty-ball.svg";
 import checkIcon from "../../assets/delivery-img/checkIcon.svg";
+import {IloginHomeUser, loginHomeUserList} from "./constants";
 
-interface Iuser {
-    gender: string;
-    name: string;
-    star: JSX.Element;
-    date: string;
-    review: string;
-    like: string;
-    bad: string;
-}
-
-interface Iusers extends Array<Iuser> {}
-const userList: Iusers = [
-    {
-        gender: "woman",
-        name: "Savannah Miles",
-        star: <>
-            <img src={fiiedStar} alt=""/>
-            <img src={fiiedStar} alt=""/>
-            <img src={fiiedStar} alt=""/>
-            <img src={fiiedStar} alt=""/>
-            <img src={fiiedStar} alt=""/>
-        </>,
-        date: "10 days ago",
-        review: "Lorem ipsum dolor sit amet, adhuc nulla definiebas mei ad, ei doming aperiam delicata est.",
-        like: "14",
-        bad: "4",
-    },
-    {
-        gender: "man",
-        name: "Jacob Jones",
-        star: <>
-            <img src={fiiedStar} alt=""/>
-            <img src={fiiedStar} alt=""/>
-            <img src={fiiedStar} alt=""/>
-            <img src={fiiedStar} alt=""/>
-            <img src={emptyStar} alt=""/>
-        </>,
-        date: "10 days ago",
-        review: "Lorem ipsum dolor sit amet, adhuc nulla definiebas mei ad, ei doming aperiam delicata est.",
-        like: "14",
-        bad: "4",
-    },
-]
-
-const Profile = ({gender, date, review, star, name, bad, like}: Iuser) => {
+const Profile = ({gender, date, review, star, name, bad, like}: IloginHomeUser) => {
     return (
-        <li className="flex flex-row w-full mb-[14px] [&:not(:last-child)]:border-b border-b-neutral-gray-lightest">
-            <div className="w-10 mr-[10.7px] w-full">
+        <li className="flex flex-row w-full mb-14 [&:not(:last-child)]:border-b border-b-neutral-gray-lightest">
+            <div className="w-40 mr-11 w-full">
                 {
                     gender === "woman" ? <img src={userWoman} alt=""/> :
                         gender === "man" ? <img src={userMan} alt=""/> : ""
                 }
             </div>
             <article className="w-full">
-                <h1 className="h-[18px] subtitle-1---bold-14-20-01px text-neutral-black">
+                <h1 className="h-18 subtitle-1---bold-14-20-01px text-neutral-black">
                     {name}
                 </h1>
                 <figure className="flex">
-                    {star}
-                    <p className="small-3---bold-10-14-0px text-neutral-gray text-[10px] ml-1">{date}</p>
+                    <img src={star >= 1 ? fiiedStar : emptyStar} alt=""/>
+                    <img src={star >= 2 ? fiiedStar : emptyStar} alt=""/>
+                    <img src={star >= 3 ? fiiedStar : emptyStar} alt=""/>
+                    <img src={star >= 4 ? fiiedStar : emptyStar} alt=""/>
+                    <img src={star === 5 ? fiiedStar : emptyStar} alt=""/>
+                    <p className="small-3---bold-10-14-0px text-neutral-gray text-10 ml-4">{date}</p>
                 </figure>
-                <h2 className="body-1---regular-14-20-01px text-[13px] text-neutral-black mt-[10.7px]">
+                <h2 className="body-1---regular-14-20-01px text-13 text-neutral-black mt-11">
                     {review}
                 </h2>
-                <figure className="flex items-center h-[30px] w-full mt-1 mb-[14px]">
+                <figure className="flex items-center h-30 w-full mt-4 mb-14">
                     <img src={likeIcon} className={"mr-1"} alt=""/>
-                    <p className="mr-3 small-2---semibold-12-16-0px text-neutral-gray-dark">
+                    <p className="mr-12 small-2---semibold-12-16-0px text-neutral-gray-dark">
                         {like}
                     </p>
                     <img src={badIcon} className={"mr-1"} alt=""/>
-                    <p className="mr-3 small-2---semibold-12-16-0px text-neutral-gray">
+                    <p className="mr-12 small-2---semibold-12-16-0px text-neutral-gray">
                         {bad}
                     </p>
                 </figure>
@@ -113,93 +74,93 @@ export const LoginHome = () => {
     return (
         <main className="relative flex w-full h-full overflow-auto justify-center transition-all duration-300 sm:min-w-[1440px] sm:min-h-[860px]">
             <section className="flex bg-neutral-white w-full min-h-[839px] sm:h-auto sm:w-[44.4%] justify-center items-center overflow-hidden">
-                <div className="flex flex-col justify-between w-full h-full sm:max-w-[640px] sm:h-auto px-[15px] sm:pl-[165px] sm:pr-[125px]">
+                <div className="flex flex-col justify-between w-full h-full sm:max-w-[640px] sm:h-auto px-15 sm:pl-165 sm:pr-125">
                     <figure>
-                        <img src={loginLogo} className={"pb-[60px] w-[80px] pt-5 sm:pt-5 sm:pb-32"} alt=""/>
+                        <img src={loginLogo} className={"pb-60 w-80 pt-20 sm:pt-20 sm:pb-128"} alt=""/>
                     </figure>
                     <article>
                         <div>
-                            <p className="h1---bold-60-82-01px text-neutral-black h-[82px] cursor-default">Login</p>
-                            <p className="body-1---regular-14-20-01px text-neutral-gray-dark pt-4 pb-8">
+                            <p className="h1---bold-60-82-01px text-neutral-black h-82 cursor-default">Login</p>
+                            <p className="body-1---regular-14-20-01px text-neutral-gray-dark pt-12 pb-32">
                                 Sign in with your data that you entered during your registration.
                             </p>
                         </div>
                         <form onSubmit={linkToHomeSubmit}>
                             <div>
-                                <label htmlFor="email" className="small-2---semibold-12-16-0px text-neutral-gray-dark mb-1">Email</label>
+                                <label htmlFor="email" className="small-2---semibold-12-16-0px text-neutral-gray-dark mb-4">Email</label>
                                 <input
                                     type="text"
                                     id="email"
                                     placeholder="name@example.com"
-                                    className="rounded-lg border border-neutral-gray-light p-3 w-full text-[14px] h-[44px] mb-7"
+                                    className="rounded-lg border border-neutral-gray-light p-12 w-full text-14 h-44 mb-28"
                                 />
                             </div>
                             <div className="relative">
-                                <label htmlFor="password" className="small-2---semibold-12-16-0px text-neutral-gray-dark mb-1 mt-2">Password</label>
+                                <label htmlFor="password" className="small-2---semibold-12-16-0px text-neutral-gray-dark mb-4 mt-8">Password</label>
                                 <input
                                     type="text"
                                     id="password"
                                     placeholder="min, 8 characters"
-                                    className="rounded-lg border border-neutral-gray-light p-3 w-full text-[14px] h-[44px] mb-7 relative"
+                                    className="rounded-lg border border-neutral-gray-light p-12 w-full text-14 h-44 mb-28 relative"
                                 />
-                                <img src={eyeIcon} className="absolute bottom-10 right-3 cursor-pointer" alt=""/>
+                                <img src={eyeIcon} className="absolute bottom-40 right-12 cursor-pointer" alt=""/>
                             </div>
-                            <div className="flex items-center mb-10">
+                            <div className="flex items-center mb-40">
                                 <input onChange={checkHandler} type="checkbox" id="remember-check" className="hidden"/>
                                 <label
                                     htmlFor="remember-check"
-                                    className={`relative w-5 h-5 rounded border-2  cursor-pointer flex justify-center items-center
+                                    className={`relative w-20 h-20 rounded border-2  cursor-pointer flex justify-center items-center
                                     ${check ? "bg-primary-default border-primary-default" : "border-neutral-gray-light"}`}
                                 >
                                     <img src={checkIcon} className={`${check ? "block" : "hidden"}`} alt=""/>
                                 </label>
                                 <label htmlFor="remember-check"
-                                       className="text-[14px] text-neutral-black pl-3 cursor-pointer w-full">
+                                       className="text-14 text-neutral-black pl-12 cursor-pointer w-full">
                                     Keep me logged in
                                 </label>
                             </div>
-                            <button type="submit" className="mb-7 text-white w-full py-3 px-4 bg-primary-default rounded-lg font-normal text-[14px]">
+                            <button type="submit" className="mb-28 text-white w-full py-12 px-16 bg-primary-default rounded-lg font-normal text-14">
                                 Login
                             </button>
                         </form>
-                        <Link to="food-delivery" className="flex justify-center mb-[134px] sm:mb-[106px] text-white w-full text-primary-default font-bold text-[14px]">
+                        <Link to="food-delivery" className="flex justify-center mb-134 sm:mb-106 text-white w-full text-primary-default font-bold text-14">
                             <p>Forgot password</p>
                         </Link>
                     </article>
-                    <div className="flex justify-center items-center h-5 mb-10">
-                        <p className="body-1---regular-14-20-01px mr-1">Don't have an account?</p>
+                    <div className="flex justify-center items-center h-20 mb-40">
+                        <p className="body-1---regular-14-20-01px mr-4">Don't have an account?</p>
                         <Link to="/food-delivery" className="button-1---bold-14-20-04px text-primary-default">Sign up</Link>
                     </div>
                 </div>
             </section>
             <section className="flex bg-primary-hover w-full sm:w-[55.6%] justify-center items-center overflow-hidden max-sm:hidden">
-                <div className="max-w-[800px] pl-[65px] pr-[71px] pt-12 pb-[84px]">
-                    <section className="relative flex pb-[145px]">
-                        <article className="relative flex flex-col ml-[30px] w-[313px] h-[436.4px] border-neutral-gray-lightest bg-neutral-white rounded-2xl p-[14.3px] overflow-hidden">
-                            <p className="text-[11.6px] font-bold text-neutral-black">Overall rating</p>
-                            <div className="flex items-center h-[25px] mb-[25px]">
-                                <p className="h-[25px] mr-3 text-primary-default">4.2</p>
-                                <figure className="flex items-center mr-1">
+                <div className="max-w-[800px] pl-65 pr-71 pt-48 pb-84">
+                    <section className="relative flex pb-145">
+                        <article className="relative flex flex-col ml-30 w-[313px] h-[436.4px] border-neutral-gray-lightest bg-neutral-white rounded-2xl p-15 overflow-hidden">
+                            <p className="text-12 font-bold text-neutral-black">Overall rating</p>
+                            <div className="flex items-center h-25 mb-25">
+                                <p className="h-25 mr-12 text-primary-default">4.2</p>
+                                <figure className="flex items-center mr-4">
                                     <img src={fiiedStar} alt=""/>
                                     <img src={fiiedStar} alt=""/>
                                     <img src={fiiedStar} alt=""/>
                                     <img src={fiiedStar} alt=""/>
                                     <img src={emptyStar} alt=""/>
                                 </figure>
-                                <p className="small-3---bold-10-14-0px text-[10px] text-neutral-gray">3 votes</p>
+                                <p className="small-3---bold-10-14-0px text-10 text-neutral-gray">3 votes</p>
                             </div>
-                            <p className="absolute left-0 top-[71px] w-full h-[1px] bg-neutral-gray-lightest"/>
+                            <p className="absolute left-0 top-71 w-full h-1 bg-neutral-gray-lightest"/>
                             <span className="absolute py-[10px] px-[14px] right-[14px] top-4 rounded-lg border text-primary-default border-primary-default text-[14px] font-bold">
                                 Leave review
                             </span>
-                            <p className="flex text-left rounded-lg border border-neutral-gray-light py-[7.2px] px-[10.7px] w-fit mx-auto">
+                            <p className="flex text-left rounded-lg border border-neutral-gray-light py-8 px-11 w-fit mx-auto">
                                 <span className="subtitle-2---semibold-13-18-0px text-neutral-gray">Sort by:</span>
-                                <span className="subtitle-2---semibold-13-18-0px mr-[7.2px] ml-1 text-neutral-black">Newest first</span>
+                                <span className="subtitle-2---semibold-13-18-0px mr-8 ml-1 text-neutral-black">Newest first</span>
                                 <img src={downArrow} alt=""/>
                             </p>
-                            <ul className="mt-[22px]">
+                            <ul className="mt-22">
                                 {
-                                    userList.map((val,i) => {
+                                    loginHomeUserList.map((val,i) => {
                                         return <Profile
                                             key={i}
                                             gender={val.gender}
@@ -214,57 +175,57 @@ export const LoginHome = () => {
                                 }
                             </ul>
                         </article>
-                        <article className="bg-neutral-white p-[13px] w-[294px] h-[279px] rounded-xl ml-[27px] mt-8 shadow-login-home-roll">
-                            <p className="w-[267px] h-[151px] rounded-lg overflow-hidden">
+                        <article className="bg-neutral-white p-13 w-[294px] h-[279px] rounded-xl ml-27 mt-32 shadow-login-home-roll">
+                            <p className="w-[267px] h-151 rounded-lg overflow-hidden">
                                 <img src={CFNroll} alt=""></img>
                             </p>
-                            <h1 className="mt-[10px] font-bold text-[16px] text-neutral-black">Roll set</h1>
-                            <p className="text-[11px] font-normal tracking-[0.2px] text-neutral-gray h-[31px] mb-[9.4px]">Ea his sensibus eleifend, mollis iudicabit omittantur id mel. Et cum ignota euismod corpora, et saepe.</p>
-                            <span className="flex justify-between items-center h-[27px]">
-                                <p className="font-extrabold text-[22px] leading-[1.33] text-neutral-black">$ 22.56</p>
-                                <svg className="p-[5px] bg-primary-light w-[27px] h-[27px] rounded-[10px]" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <h1 className="mt-10 font-bold text-16 text-neutral-black">Roll set</h1>
+                            <p className="text-11 font-normal tracking-[0.2px] text-neutral-gray h-31 mb-10">Ea his sensibus eleifend, mollis iudicabit omittantur id mel. Et cum ignota euismod corpora, et saepe.</p>
+                            <span className="flex justify-between items-center h-27">
+                                <p className="font-extrabold text-22 leading-[1.33] text-neutral-black">$ 22.56</p>
+                                <svg className="p-5 bg-primary-light w-27 h-27 rounded-[10px]" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M9.12 4.22v9.8M4.22 9.12h9.8" stroke="#4E60FF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                                 </svg>
                             </span>
                         </article>
-                        <article className="absolute justify-between flex w-[618px] h-[132px] mb-[] bottom-[68px] p-[13.5px] bg-neutral-white rounded-xl shadow-login-home-nigiri">
+                        <article className="absolute justify-between flex w-[618px] h-132 bottom-68 p-14 bg-neutral-white rounded-xl shadow-login-home-nigiri">
                             <div className="flex">
-                                <p className="w-[152px] h-[105px] rounded-lg mr-[17px] overflow-hidden">
-                                    <img src={sushi} className="relative bottom-11" alt=""/>
+                                <p className="w-152 h-105 rounded-lg mr-17 overflow-hidden">
+                                    <img src={sushi} className="relative bottom-44" alt=""/>
                                 </p>
                                 <div className="w-[270px]">
-                                    <h1 className="mt-[10px] font-bold text-[16px] text-neutral-black">Nigiri set</h1>
-                                    <p className="text-[11px] font-normal tracking-[0.2px] text-neutral-gray h-[31px] mb-[9.4px]">Ea his sensibus eleifend, mollis iudicabit omittantur id mel. Et cum ignota euismod corpora, et saepe.</p>
-                                    <p className="font-extrabold text-[22px] h-7 text-neutral-black leading-[1.33]">$ 16.80</p>
+                                    <h1 className="mt-10 font-bold text-16 text-neutral-black">Nigiri set</h1>
+                                    <p className="text-11 font-normal tracking-[0.2px] text-neutral-gray h-31 mb-10">Ea his sensibus eleifend, mollis iudicabit omittantur id mel. Et cum ignota euismod corpora, et saepe.</p>
+                                    <p className="font-extrabold text-22 h-28 text-neutral-black leading-[1.33]">$ 16.80</p>
                                 </div>
                             </div>
-                            <div className="flex flex-col justify-between h-[67.7px] w-[112.4px] mt-8">
-                                <div className="flex mx-auto text-[12px] font-bold text-neutral-black">
+                            <div className="flex flex-col justify-between h-68 w-113 mt-32">
+                                <div className="flex mx-auto text-12 font-bold text-neutral-black">
                                     <img src={minusIcon} alt=""/>
-                                    <p className="mx-[5px]">1</p>
+                                    <p className="mx-5">1</p>
                                     <img src={plusIcon} alt=""/>
                                 </div>
-                                <div className="flex px-[13.5px] py-[10px] bg-primary-light rounded-xl">
-                                    <svg className="" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <div className="flex px-14 py-10 bg-primary-light rounded-xl">
+                                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M9.12 4.22v9.8M4.22 9.12h9.8" stroke="#4E60FF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                                     </svg>
-                                    <p className="text-[12px] font-bold text-primary-default">
+                                    <p className="text-12 font-bold text-primary-default">
                                         Add to cart
                                     </p>
                                 </div>
                             </div>
                         </article>
                     </section>
-                    <article className="flex flex-col items-center w-[480px] h-auto mx-auto mb-10">
-                        <h1 className="w-full h-[42px] text-[32px] text-center font-bold text-white mb-4">
+                    <article className="flex flex-col items-center w-[480px] h-auto mx-auto mb-40">
+                        <h1 className="w-full h-42 text-32 text-center font-bold text-white mb-16">
                             Leave reviews for all meals
                         </h1>
-                        <p className="text-white text-sm text-center font-[300]">
+                        <p className="text-white text-14 text-center font-[300]">
                             Lorem ipsum dolor sit amet, magna scaevola his ei. Cum te paulo probatus molestiae, eirmod assentior eum ne, et omnis antiopam mel.
                         </p>
                     </article>
                     <ul className="flex justify-center">
-                        <p className="flex gap-2">
+                        <p className="flex gap-8px">
                             <img src={emptyBall} alt=""/>
                             <img src={filledBall} alt=""/>
                             <img src={emptyBall} alt=""/>

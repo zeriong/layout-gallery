@@ -1,4 +1,17 @@
 /** @type {import('tailwindcss').Config} */
+const createPxEntries = (size) => {
+  return {...Array.from(Array(size + 1)).reduce((accumulator, _, i) => {
+      return {...accumulator, [`${i}px`]: `${i}px` }
+    })
+  };
+}
+const createRemEntries = (size) => {
+  return {...Array.from(Array(size + 1)).reduce((accumulator, _, i) => {
+      return {...accumulator, [i]: `${i * 0.0625}rem` }
+    })
+  };
+}
+
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
@@ -6,15 +19,17 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        "mobile-sm" : "320px",
-        "mobile-md" : "360px",
+        "mobile-sm" : "361px",
+        "mobile-md" : "365px",
         "mobile-lg" : "400px",
       },
-      fontSize: {
+      fontSize: {...createPxEntries(100), ...createRemEntries(100)},
+      lineHeight: {...createPxEntries(100), ...createRemEntries(100)},
+      /*fontSize: {
         "32px" : "2rem",
         "28px" : "1.750rem",
         "10px" : "0.625rem",
-      },
+      },*/
       boxShadow:{
         'login-home-nigiri': '0 -30px 50px -20px rgb(0 0 0 / 0.25)',
         'login-home-roll': '-30px 30px 50px -20px rgb(0 0 0 / 0.25)',
@@ -57,9 +72,7 @@ module.exports = {
       padding:{
         'header-height' : '116px',
       },
-      spacing: {
-        'header-height' : '116px',
-      },
+      spacing: {...createPxEntries(200), ...createRemEntries(200)},
     },
   },
   plugins: [

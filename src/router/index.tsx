@@ -5,7 +5,7 @@ import {LoginHome} from "../pages/foodDelivery/loginHome";
 import {DeliveryHome} from "../pages/foodDelivery";
 import {AccSettings} from "../pages/foodDelivery/accSettings";
 import {GalleryPage} from "../pages/gallery";
-import {CryptoLayout} from "../layout/cryptoApp";
+import {CryptoApp} from "../layout/cryptoApp";
 import {CryptoIntro} from "../pages/cryptoApp/cryptoIntro";
 import {CryptoMarkets} from "../pages/cryptoApp/cryptoMarkets";
 import {CryptoTrades} from "../pages/cryptoApp/cryptoTrades";
@@ -13,6 +13,7 @@ import {CryptoWallets} from "../pages/cryptoApp/wallets";
 import {CryptoActivity} from "../pages/cryptoApp/activity";
 import {CryptoLoginHome} from "../pages/cryptoApp/loginHome";
 import {CryptoHome} from "../pages/cryptoApp";
+import {CryptoLayout} from "../layout/cryptoApp/wrap";
 
 
 export const Index = ()=> {
@@ -26,16 +27,17 @@ export const Index = ()=> {
                     <Route path="acc-settings" element={<AccSettings/>}/>
                 </Route>
 
-                <Route path="/crypto-intro" element={<CryptoIntro/>}/>
-                <Route path="/crypto-login-home" element={<CryptoLoginHome/>}/>
-                <Route path="/crypto" element={<CryptoLayout/>}>
+                <Route path="/crypto" element={<CryptoApp/>}>
+                    <Route path="*" element={<CryptoLayout/>}>
                         <Route index element={<CryptoHome/>}/>
                         <Route path="markets" element={<CryptoMarkets/>}/>
                         <Route path="trades" element={<CryptoTrades/>}/>
                         <Route path="wallets" element={<CryptoWallets/>}/>
                         <Route path="activity" element={<CryptoActivity/>}/>
+                    </Route>
+                    <Route path="intro" element={<CryptoIntro/>}/>
+                    <Route path="signIn" element={<CryptoLoginHome/>}/>
                 </Route>
-
             </Routes>
         </Router>
     )

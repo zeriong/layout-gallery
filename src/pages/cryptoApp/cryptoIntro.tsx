@@ -1,56 +1,24 @@
 import React, {useEffect, useState} from "react";
 
-import intro1 from "../../assets/crypto-mobile/intro-img1.svg";
-import intro2 from "../../assets/crypto-mobile/intro-img2.svg";
-import intro3 from "../../assets/crypto-mobile/intro-img3.svg";
 import starLoad1 from "../../assets/crypto-mobile/Group 95.svg";
 import starLoad2 from "../../assets/crypto-mobile/Group 96.svg";
 import starLoad3 from "../../assets/crypto-mobile/Group 97.svg";
 import starLoad4 from "../../assets/crypto-mobile/Group 98.svg";
 import stars from "../../assets/crypto-mobile/Group.svg";
 import {useNavigate} from "react-router-dom";
-
-interface Iitem {
-    id: string;
-    img: string;
-    title: string;
-    summary: string;
-}
-
-interface Iitems extends Array<Iitem> {}
-
-const items:Iitems = [
-    {
-        id: "cryptoIntro1",
-        img: intro1,
-        title: "Trade anytime anywhere",
-        summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
-    },
-    {
-        id: "cryptoIntro2",
-        img: intro2,
-        title: "Save and invest at the same time",
-        summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
-    },
-    {
-        id: "cryptoIntro3",
-        img: intro3,
-        title: "Transact fast and easy",
-        summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
-    },
-]
+import {cryptoIntroItems} from "./constants";
 
 const IntroItem = (props: { img:string, title:string, summary:string }) => {
     return (
         <div className="w-full flex flex-col min-w-full transition-all duration-300">
             <figure className="relative w-full">
-                <img src={props.img} className="relative left-1/2 -translate-x-1/2 w-4/5 h-[30vh] mt-[93px]" alt=""/>
+                <img src={props.img} className="relative left-1/2 -translate-x-1/2 w-4/5 h-[30vh] mt-93px" alt=""/>
                 <div className="absolute w-full h-[35%] bg-gradient-to-t from-crypto-dark top-[70%]"/>
             </figure>
             <div className="relative flex flex-col justify-between mt-[5%]">
                 <div className="absolute h-full w-full bg-gradient-to-t from-crypto-dark-two -z-10"/>
-                <div className="w-full h-fit p-6 text-center">
-                    <h1 className="crypto-2xl-normal text-white pb-6">
+                <div className="w-full h-fit p-24 text-center">
+                    <h1 className="crypto-2xl-normal text-white pb-24">
                         {props.title}
                     </h1>
                     <p className="crypto-lg-normal text-crypto-warm-grey">
@@ -62,7 +30,7 @@ const IntroItem = (props: { img:string, title:string, summary:string }) => {
     )
 }
 
-const TOTAL_SLIDES = items.length - 1;
+const TOTAL_SLIDES = cryptoIntroItems.length - 1;
 
 const Carousel = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -107,7 +75,7 @@ const Carousel = () => {
         if (currentSlide >= TOTAL_SLIDES) {
             // 더 이상 넘어갈 슬라이드가 없으면
             //setCurrentSlide(0); // 1번째 사진으로 넘어갑니다.
-            return navigate('/crypto-login-home');
+            return navigate('/crypto/signIn');
         } else {
             setCurrentSlide(currentSlide + 1);
         }
@@ -154,21 +122,21 @@ const Carousel = () => {
                 onTouchEnd={onTouchEnd}
             >
                 {
-                    items.map((val) => {
+                    cryptoIntroItems.map((val) => {
                         return(
                             <IntroItem key={val.id} img={val.img} title={val.title} summary={val.summary}/>
                         )
                     })
                 }
             </div>
-            <div className="fixed w-full bottom-[7%] flex flex-col items-center z-20">
-                <ul className="grid grid-cols-3 justify-center gap-[8px]">
-                    <li className={`w-3 h-3 rounded-full ${currentSlide === 0 ? "bg-crypto-warm-grey" : "bg-crypto-ball-dark"}`}/>
-                    <li className={`w-3 h-3 rounded-full ${currentSlide === 1 ? "bg-crypto-warm-grey" : "bg-crypto-ball-dark"}`}/>
-                    <li className={`w-3 h-3 rounded-full ${currentSlide === 2 ? "bg-crypto-warm-grey" : "bg-crypto-ball-dark"}`}/>
+            <div className="absolute w-full bottom-[7%] flex flex-col items-center z-20">
+                <ul className="grid grid-cols-3 justify-center gap-8px">
+                    <li className={`w-12 h-12 rounded-full ${currentSlide === 0 ? "bg-crypto-warm-grey" : "bg-crypto-ball-dark"}`}/>
+                    <li className={`w-12 h-12 rounded-full ${currentSlide === 1 ? "bg-crypto-warm-grey" : "bg-crypto-ball-dark"}`}/>
+                    <li className={`w-12 h-12 rounded-full ${currentSlide === 2 ? "bg-crypto-warm-grey" : "bg-crypto-ball-dark"}`}/>
                 </ul>
                 <button
-                    className="w-[45%] h-full bg-crypto-seafoam-blue crypto-lg-md text-crypto-dark-three py-[3%] rounded-2xl mt-10 shadow-[0_20px_60px_rgba(94,213,168,0.16)]"
+                    className="w-[45%] h-full bg-crypto-seafoam-blue crypto-lg-md text-crypto-dark-three py-[3%] rounded-2xl mt-40 shadow-[0_20px_60px_rgba(94,213,168,0.16)]"
                     onClick={nextBtn}
                 >
                     Next
@@ -190,8 +158,7 @@ export const CryptoIntro = () => {
     },[])
 
     return (
-        <section className='absolute bg-gray-200 w-full h-full select-none'>
-            <div className='absolute w-full h-full crypto-font max-w-[420px] left-1/2 -translate-x-1/2 overflow-hidden'>
+            <section className='absolute w-full h-full crypto-font max-w-[420px] overflow-hidden'>
                 <article className={`absolute left-1/2 -translate-x-1/2 bg-crypto-dark w-full h-full transition-all duration-[1.5s] visible z-50 opacity-100 ${popIntro ? "" : "invisible opacity-0"}`} onTransitionEnd={(e)=>{ return e.currentTarget.style.zIndex = "-20"}}>
                     <div className="relative w-full h-full">
                         <div className="absolute crypto-starLoad w-full h-full z-20 -top-[8%]"/>
@@ -204,18 +171,17 @@ export const CryptoIntro = () => {
                 </article>
                 <article className="relative bg-crypto-dark w-full h-full transition-all duration-500 overflow-hidden">
                     <figure className="w-full h-full absolute">
-                        <div className="absolute w-[210px] h-[194px] bg-crypto-seafoam-blue blur-[150px] left-[-125px] top-[-152px]"/>
-                        <img src={starLoad1} className="absolute left-[29px] top-[200px]" alt=""/>
-                        <img src={starLoad2} className="absolute left-[314px] top-[-16px]" alt=""/>
+                        <div className="absolute w-[210px] h-194px bg-crypto-seafoam-blue blur-[150px] -left-125px -top-152px"/>
+                        <img src={starLoad1} className="absolute left-29px top-200px" alt=""/>
+                        <img src={starLoad2} className="absolute left-[314px] -top-16px" alt=""/>
                         <img src={starLoad3} className="absolute left-[368px] top-[459px]" alt=""/>
-                        <img src={starLoad4} className="absolute left-[45px] top-[499px]" alt=""/>
+                        <img src={starLoad4} className="absolute left-45px top-[499px]" alt=""/>
                         <img src={stars} className="absolute opacity-50" alt=""/>
                     </figure>
                     <div className="relative w-full h-full">
                         <Carousel/>
                     </div>
                 </article>
-            </div>
-        </section>
+            </section>
     )
 }
