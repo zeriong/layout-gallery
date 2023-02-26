@@ -62,15 +62,12 @@ input, input:focus, input:active {
     background-color: transparent;
 }
 
-.scroll-hidden::-webkit-scrollbar {
-    display: none;
+.mobile-scroll {
+    touch-action: pan-x;
 }
 
-.crypto-stars {
-    background: url("../assets/crypto-mobile/intro-stars.svg") repeat center top / 100% 60%;
-}
-.crypto-starLoad {
-    background: url("../assets/crypto-mobile/intro-starLoad.svg") no-repeat center / 100%;
+.scroll-hidden::-webkit-scrollbar {
+    display: none;
 }
 
 .text-line-1 {
@@ -98,85 +95,18 @@ input, input:focus, input:active {
 .landing-main-h {
     height: calc(100% - 116px);
 }
-
-
-.h1---bold-60-82-01px {
-    @apply text-6xl leading-tight font-bold;
+.rocket-bg {
+    background-image:  url("../apps/crypto/assets/rocketBg.svg");
 }
-.h2---extrabold-40-56-01px {
-    @apply text-4xl leading-normal font-extrabold;
+.rocket-gradient {
+    background: linear-gradient(135deg, #1B232A 30.83%, #5ED5A8 173.33%);
 }
-.h3---bold-32-42-01px {
-    @apply text-3xl leading-tight font-bold;
+.trade-radio[name=tradeNav]:checked + label{
+    @apply bg-crypto-dark text-crypto-silver transition-all duration-300
 }
-.h4---extrabold-24-32-01px {
-    @apply text-2xl leading-tight font-extrabold;
+.trade-date-radio[name=tradeDateNav]:checked + label{
+    @apply bg-crypto-ball-dark text-white transition-all duration-300
 }
-.h5---semibold-20-28-01px {
-    @apply text-xl leading-normal font-semibold;
-}
-.h6---bold-18-24-01px {
-    @apply text-lg leading-tight font-bold;
-}
-.button-1---bold-14-20-04px {
-    @apply text-sm leading-normal font-bold;
-}
-.subtitle-1---bold-14-20-01px {
-    @apply text-sm leading-normal font-bold;
-}
-.body-1---regular-14-20-01px {
-    @apply leading-normal;
-}
-.small-1---bold-13-18-01px {
-    @apply text-xs leading-normal font-bold;
-}
-.subtitle-2---semibold-13-18-0px {
-    @apply text-xs leading-normal font-semibold;
-}
-.body-2---regular-13-18-02px {
-    @apply text-xs leading-normal;
-}
-.small-2---semibold-12-16-0px {
-    @apply text-xs leading-tight font-semibold;
-}
-.caption---bold-11-16-06px-caps {
-    @apply text-xs leading-normal tracking-wide font-bold;
-}
-.small-3---bold-10-14-0px {
-    @apply leading-normal font-bold;
-}
-
-
-.crypto-32px-bold {
-    @apply text-32px leading-normal tracking-wide font-bold;
-}
-.crypto-28px-bold {
-    @apply text-28px tracking-wide font-bold;
-}
-.crypto-2xl-normal {
-    @apply text-2xl tracking-wide font-normal;
-}
-.crypto-lg-bold {
-    @apply text-lg tracking-wide font-bold;
-}
-.crypto-lg-md {
-    @apply text-lg tracking-wide font-medium;
-}
-.crypto-lg-normal {
-    @apply text-lg tracking-wide font-normal;
-}
-.crypto-sm-bold {
-    @apply text-sm leading-normal tracking-wide font-bold;
-}
-.crypto-sm-md {
-    @apply text-sm leading-normal tracking-wide font-medium;
-}
-.crypto-sm-normal {
-    @apply text-sm font-normal;
-}
-.crypto-xs-normal {
-    @apply text-xs tracking-wide font-normal;
-}
-.crypto-10px-normal {
-    @apply text-10px font-normal;
+.trade-graph-gradient{
+    background: linear-gradient(180deg, rgba(22, 28, 34, 0) 0%, #161C22 100%);
 }

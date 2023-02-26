@@ -19,12 +19,9 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        "mobile-sm" : "361px",
-        "mobile-md" : "365px",
-        "mobile-lg" : "400px",
+        "m-sm" : "365px",
       },
       fontSize: {...createPxEntries(100), ...createRemEntries(100)},
-      lineHeight: {...createPxEntries(100), ...createRemEntries(100)},
       /*fontSize: {
         "32px" : "2rem",
         "28px" : "1.750rem",
