@@ -8,6 +8,10 @@ import noticeIcon from "../assets/noticeIcon.svg";
 import scanIcon from "../assets/scanIcon.svg";
 import searchIcon from "../assets/searchIcon.svg";
 import profileIcon from "../assets/profileIcon.svg";
+import buyIcon from "../assets/buyIcon.svg";
+import starIcon from "../assets/starIcon.svg";
+import candlesIcon from "../assets/candlesIcon.svg";
+
 import {cryptoMenu1, cryptoMenu2} from "./constants";
 import {useLabels} from "@headlessui/react/dist/components/label/label";
 
@@ -54,13 +58,13 @@ export const Header = () => {
                             location.pathname === '/crypto/trades' ? (
                                 <>
                                     <button>
-                                        <img src={searchIcon} alt=""/>
+                                        <img src={candlesIcon} alt=""/>
                                     </button>
                                     <button>
-                                        <img src={scanIcon} alt=""/>
+                                        <img src={buyIcon} alt=""/>
                                     </button>
                                     <button>
-                                        <img src={noticeIcon} alt=""/>
+                                        <img src={starIcon} alt=""/>
                                     </button>
                                 </>
                             ) : (

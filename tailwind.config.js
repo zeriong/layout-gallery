@@ -52,6 +52,7 @@ module.exports = {
         "crypto-seafoam-blue": "#5ed5a8",
         "crypto-pale-red": "#dd4b4b",
         "crypto-pale-grey": "#f1f4f6",
+        "crypto-light-grey": "#1E252D",
         "crypto-white": "#ffffff",
         "crypto-cool-grey": "#a7afb7",
         "crypto-dark-two": "#161c22",

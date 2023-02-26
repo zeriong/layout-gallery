@@ -133,3 +133,226 @@ export const coinLi2: IcoinLlItem = [
         price: "40,059.83",
     },
 ]
+
+interface ItradesTime {
+    id: string;
+    time: string;
+}
+
+interface ItradesTimes extends Array<ItradesTime> {}
+export const tradesTimes: ItradesTimes = [
+    {
+        id: "time1",
+        time: "18:00",
+    },
+    {
+        id: "time2",
+        time: "19:00",
+    },
+    {
+        id: "time3",
+        time: "20:00",
+    },
+    {
+        id: "time4",
+        time: "21:00",
+    },
+    {
+        id: "time5",
+        time: "21:00",
+    },
+]
+interface ItradesPrice {
+    id: string;
+    price: string;
+}
+
+interface ItradesPrices extends Array<ItradesPrice> {}
+export const tradesPrices: ItradesPrices = [
+    {
+        id: 'price1',
+        price: '64,000.00',
+    },
+    {
+        id: 'price2',
+        price: '64,000.00',
+    },
+    {
+        id: 'price3',
+        price: '64,000.00',
+    },
+    {
+        id: 'price4',
+        price: '64,000.00',
+    },
+    {
+        id: 'price5',
+        price: '64,000.00',
+    },
+    {
+        id: 'price6',
+        price: '64,000.00',
+    },
+    {
+        id: 'price7',
+        price: '64,000.00',
+    },
+    {
+        id: 'price8',
+        price: '64,000.00',
+    },
+]
+interface ItradesOrder {
+    value: string;
+    title: string;
+}
+
+interface ItradesOrders extends Array<ItradesOrder> {}
+export const tradesOrder: ItradesOrders = [
+    {
+        value: 'openOrder',
+        title: 'Open Order (2)',
+    },
+    {
+        value: 'OrderBooks',
+        title: 'Order Books',
+    },
+    {
+        value: 'MarketTrades',
+        title: 'Market Trades',
+    },
+]
+interface ItradesOrderBoard {
+    id:string;
+    price: string;
+    vol: string;
+    opt: string;
+    opt2?:string;
+}
+
+interface ItradesOrderBoards extends Array<ItradesOrderBoard> {}
+export const tradesOrderBoard: ItradesOrderBoards = [
+    {
+        id:'vol1',
+        price:'27,486.39',
+        vol:'2485.27',
+        opt: 'text-crypto-seafoam-blue'
+    },
+    {
+        id:'vol2',
+        price:'27,486.39',
+        vol:'2485.27',
+        opt: 'text-crypto-seafoam-blue'
+    },
+    {
+        id:'vol3',
+        price:'27,486.39',
+        vol:'2485.27',
+        opt: 'text-crypto-seafoam-blue'
+    },
+    {
+        id:'vol4',
+        price:'27,486.39',
+        vol:'2485.27',
+        opt: 'text-crypto-seafoam-blue'
+    },
+    {
+        id:'vol5',
+        price:'27,486.39',
+        vol:'2485.27',
+        opt: 'text-crypto-seafoam-blue'
+    },
+    {
+        id:'vol6',
+        price:'27,486.39',
+        vol:'2485.27',
+        opt: 'text-crypto-seafoam-blue'
+    },
+    {
+        id:'vol7',
+        price:'27,486.39',
+        vol:'2485.27',
+        opt: 'text-crypto-seafoam-blue'
+    },
+    {
+        id:'vol8',
+        price:'27,486.39',
+        vol:'2485.27',
+        opt: 'text-crypto-seafoam-blue'
+    },
+    {
+        id:'vol9',
+        price:'27,486.39',
+        vol:'2485.27',
+        opt: 'text-crypto-seafoam-blue'
+    },
+    {
+        id:'vol10',
+        price:'27,486.39',
+        vol:'2485.27',
+        opt: 'text-crypto-seafoam-blue'
+    },
+]
+export const tradesOrderBoard2: ItradesOrderBoards = [
+    {
+        id:'vol1',
+        price:'27,486.39',
+        vol:'2485.27',
+        opt: 'text-crypto-pale-red'
+    },
+    {
+        id:'vol2',
+        price:'27,486.39',
+        vol:'2485.27',
+        opt: 'text-crypto-pale-red'
+    },
+    {
+        id:'vol3',
+        price:'27,486.39',
+        vol:'2485.27',
+        opt: 'text-crypto-pale-red'
+    },
+    {
+        id:'vol4',
+        price:'27,486.39',
+        vol:'2485.27',
+        opt: 'text-crypto-pale-red'
+    },
+    {
+        id:'vol5',
+        price:'`',
+        vol:'`',
+        opt: 'text-transparent select-none',
+        opt2: 'text-transparent select-none',
+    },
+    {
+        id:'vol6',
+        price:'27,486.39',
+        vol:'2485.27',
+        opt: 'text-crypto-pale-red'
+    },
+    {
+        id:'vol7',
+        price:'27,486.39',
+        vol:'2485.27',
+        opt: 'text-crypto-pale-red'
+    },
+    {
+        id:'vol8',
+        price:'27,486.39',
+        vol:'2485.27',
+        opt: 'text-crypto-pale-red'
+    },
+    {
+        id:'vol9',
+        price:'27,486.39',
+        vol:'2485.27',
+        opt: 'text-crypto-pale-red'
+    },
+    {
+        id:'vol10',
+        price:'27,486.39',
+        vol:'2485.27',
+        opt: 'text-crypto-pale-red'
+    },
+]

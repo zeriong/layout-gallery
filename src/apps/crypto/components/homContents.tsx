@@ -48,3 +48,21 @@ export const RecentAndTopCoin = (props: {img:string, tag:string, rate:string, pr
         </li>
     )
 }
+export const TradesTimeList = (props: {time:string}) => {
+    return <p>{props.time}</p>
+}
+export const TradesPriceList = (props: {price:string}) => {
+    return <p>{props.price}</p>
+}
+export const TradesOrderBoard = (props: {price:string, vol:string, opt:string, opt2?:string}) => {
+    return (
+        <div className="flex justify-between">
+            <p className={`text-crypto-dark font-normal ${props.opt2}`}>
+                {props.price}
+            </p>
+            <p className={`${props.opt} font-normal`}>
+                {props.vol}
+            </p>
+        </div>
+    )
+}

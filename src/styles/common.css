@@ -110,3 +110,9 @@ input, input:focus, input:active {
 .trade-graph-gradient{
     background: linear-gradient(180deg, rgba(22, 28, 34, 0) 0%, #161C22 100%);
 }
+.trade-order-radio[name=tradeOrder]:checked + label{
+    @apply bg-crypto-pale-grey text-crypto-dark transition-all duration-300
+}
+.trade-pop-radio[name=tradePopover]:checked + label{
+    @apply bg-crypto-dark text-crypto-silver transition-all duration-300
+}
