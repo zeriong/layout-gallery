@@ -1,16 +1,24 @@
-import React, {ChangeEvent, useState} from "react";
+import React, {ChangeEvent, useEffect, useState} from "react";
 import {tradesOrderBoard, tradesOrderBoard2, tradesPrices, tradesTimes} from "./constants";
 import {TradesOrderBoard, TradesPriceList, TradesTimeList} from "../components/homContents";
 import bulkIcon from '../assets/bulkIcon.svg'
 import arrowSwapIcon from '../assets/arrowSwapIcon.svg'
 import tradesArrow from '../assets/tradesArrow.svg'
 import tradesAddIcon from '../assets/tradesAddIcon.svg'
+import tradesPopMinusIcon from '../assets/tradesPopMinusIcon.svg'
+import tradesPopAddIcon from '../assets/tradesPopAddIcon.svg'
+import {Input} from "postcss";
 
 export const CryptoTrades = () => {
-    const [dateValue, setDateValue] = useState('1m');
-    const [navValue, setNavValue] = useState('Spot');
-    const [orderValue, setOrderValue] = useState('OrderBooks');
-    const [popValue, setPopValue] = useState('popMarket');
+    const [dateValue, setDateValue] = useState<string>('1m');
+    const [navValue, setNavValue] = useState<string>('Spot');
+    const [orderValue, setOrderValue] = useState<string>('OrderBooks');
+    const [popValue, setPopValue] = useState<string>('popMarket');
+    const [popPriceValue, setPopPriceValue] = useState<string | number>(38418.49);
+    const [popQuantityValue, setPopQuantityValue] = useState<string | number>(38418.490);
+    const [rangeValChange, setRangeValChange] = useState<string>("50per");
+    const [rangeVal, setRangeVal] = useState<string | number>("50");
+
     const onDateValueChange = (e: ChangeEvent<HTMLInputElement>) => {
         setDateValue(e.currentTarget.value);
     }
@@ -22,6 +30,21 @@ export const CryptoTrades = () => {
     }
     const onPopValueChange = (e: ChangeEvent<HTMLInputElement>) => {
         setPopValue(e.currentTarget.value);
+    }
+    const onRangeValChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setRangeValChange(e.currentTarget.value);
+    }
+    const rangeTrackchange = (e: ChangeEvent<HTMLInputElement> | React.MouseEvent<HTMLInputElement>) => {
+        const val = document.getElementById('tradeRange');
+        const id = e.currentTarget.id;
+        if (e.currentTarget.value) setRangeVal(e.currentTarget.value);
+
+        if (!val) return
+        if (id === '25per') {setRangeVal('25')}
+        if (id === '50per') {setRangeVal('50')}
+        if (id === '75per') {setRangeVal('75')}
+        if (id === '100per') {setRangeVal('100')}
+        val.style.background = 'linear-gradient(to right, #252e35 0%, #252e35 '+ rangeVal +'%, #1b232a ' + rangeVal + '%, #1b232a 100%)'
     }
 
     return (
@@ -35,7 +58,7 @@ export const CryptoTrades = () => {
                                     value="Convert"
                                     type="radio"
                                     name="tradeNav"
-                                    className="hidden trade-radio first:checked"
+                                    className="hidden"
                                     id="Convert"
                                     checked={navValue === 'Convert'}
                                     onChange={onNavValueChange}
@@ -49,7 +72,7 @@ export const CryptoTrades = () => {
                                     value="Spot"
                                     type="radio"
                                     name="tradeNav"
-                                    className="hidden trade-radio first:checked"
+                                    className="hidden"
                                     id="Spot"
                                     checked={navValue === 'Spot'}
                                     onChange={onNavValueChange}
@@ -63,7 +86,7 @@ export const CryptoTrades = () => {
                                     value="Margin"
                                     type="radio"
                                     name="tradeNav"
-                                    className="hidden trade-radio first:checked"
+                                    className="hidden"
                                     id="Margin"
                                     checked={navValue === 'Margin'}
                                     onChange={onNavValueChange}
@@ -77,7 +100,7 @@ export const CryptoTrades = () => {
                                     value="Fiat"
                                     type="radio"
                                     name="tradeNav"
-                                    className="hidden trade-radio first:checked"
+                                    className="hidden"
                                     id="Fiat"
                                     checked={navValue === 'Fiat'}
                                     onChange={onNavValueChange}
@@ -144,7 +167,7 @@ export const CryptoTrades = () => {
                             value="1m"
                             type="radio"
                             name="tradeDateNav"
-                            className="hidden trade-date-radio"
+                            className="hidden"
                             checked={dateValue === '1m'}
                             onChange={onDateValueChange}
                         />
@@ -158,7 +181,7 @@ export const CryptoTrades = () => {
                             value="5m"
                             type="radio"
                             name="tradeDateNav"
-                            className="hidden trade-date-radio"
+                            className="hidden"
                             checked={dateValue === '5m'}
                             onChange={onDateValueChange}
                         />
@@ -172,7 +195,7 @@ export const CryptoTrades = () => {
                             value="15m"
                             type="radio"
                             name="tradeDateNav"
-                            className="hidden trade-date-radio"
+                            className="hidden"
                             checked={dateValue === '15m'}
                             onChange={onDateValueChange}
                         />
@@ -186,7 +209,7 @@ export const CryptoTrades = () => {
                             value="15m2"
                             type="radio"
                             name="tradeDateNav"
-                            className="hidden trade-date-radio"
+                            className="hidden"
                             checked={dateValue === '15m2'}
                             onChange={onDateValueChange}
                         />
@@ -200,7 +223,7 @@ export const CryptoTrades = () => {
                             value="1d"
                             type="radio"
                             name="tradeDateNav"
-                            className="hidden trade-date-radio"
+                            className="hidden"
                             checked={dateValue === '1d'}
                             onChange={onDateValueChange}
                         />
@@ -214,7 +237,7 @@ export const CryptoTrades = () => {
                             value="More"
                             type="radio"
                             name="tradeDateNav"
-                            className="hidden trade-date-radio"
+                            className="hidden"
                             checked={dateValue === 'More'}
                             onChange={onDateValueChange}
                         />
@@ -240,7 +263,7 @@ export const CryptoTrades = () => {
                             value="openOrder"
                             type="radio"
                             name="tradeOrder"
-                            className="hidden trade-order-radio"
+                            className="hidden"
                             checked={orderValue === 'openOrder'}
                             onChange={onOrderValueChange}
                         />
@@ -254,7 +277,7 @@ export const CryptoTrades = () => {
                             value="OrderBooks"
                             type="radio"
                             name="tradeOrder"
-                            className="hidden trade-order-radio"
+                            className="hidden"
                             checked={orderValue === 'OrderBooks'}
                             onChange={onOrderValueChange}
                         />
@@ -268,7 +291,7 @@ export const CryptoTrades = () => {
                             value="MarketTrades"
                             type="radio"
                             name="tradeOrder"
-                            className="hidden trade-order-radio"
+                            className="hidden"
                             checked={orderValue === 'MarketTrades'}
                             onChange={onOrderValueChange}
                         />
@@ -326,7 +349,7 @@ export const CryptoTrades = () => {
                                 value="popLimit"
                                 type="radio"
                                 name="tradePopover"
-                                className="hidden trade-pop-radio"
+                                className="hidden"
                                 checked={popValue === 'popLimit'}
                                 onChange={onPopValueChange}
                             />
@@ -340,7 +363,7 @@ export const CryptoTrades = () => {
                                 value="popMarket"
                                 type="radio"
                                 name="tradePopover"
-                                className="hidden trade-pop-radio"
+                                className="hidden"
                                 checked={popValue === 'popMarket'}
                                 onChange={onPopValueChange}
                             />
@@ -354,7 +377,7 @@ export const CryptoTrades = () => {
                                 value="popStopLimit"
                                 type="radio"
                                 name="tradePopover"
-                                className="hidden trade-pop-radio"
+                                className="hidden"
                                 checked={popValue === 'popStopLimit'}
                                 onChange={onPopValueChange}
                             />
@@ -363,8 +386,128 @@ export const CryptoTrades = () => {
                             </label>
                         </div>
                     </div>
-                    <div className="bg-crypto-dark-two">d</div>
-                    <div className="bg-crypto-dark-two">d</div>
+                    <div className="flex items-center justify-between relative bg-crypto-dark-two rounded-[12px]">
+                        <h1 className="ml-16 text-12 text-crypto-cool-grey my-18">
+                            Price:
+                        </h1>
+                        <p className="absolute left-1/2 -translate-x-1/2 text-14 font-normal text-white">
+                            {popPriceValue}
+                        </p>
+                        <div className="flex">
+                            <figure
+                                className="p-10 rounded-l-[12px] mr-3 active:bg-crypto-dark"
+                                onMouseUp={()=> setPopPriceValue((+popPriceValue + 0.01).toFixed(2))}
+                            >
+                                <img src={tradesPopAddIcon} alt=""/>
+                            </figure>
+                            <figure
+                                className="p-10 rounded-r-[12px] active:bg-crypto-dark mr-4"
+                                onMouseUp={()=> setPopPriceValue((+popPriceValue - 0.01).toFixed(2))}
+                            >
+                                <img src={tradesPopMinusIcon} alt=""/>
+                            </figure>
+                        </div>
+                    </div>
+                    <div className="relative bg-crypto-dark-two rounded-t-[12px]">
+                        <div className="flex items-center justify-between relative border-b border-crypto-dark">
+                            <h1 className="ml-16 text-12 text-crypto-cool-grey my-18">
+                                Quantity:
+                            </h1>
+                            <p className="absolute left-1/2 -translate-x-1/2 text-14 font-normal text-white">
+                                {popQuantityValue}
+                            </p>
+                            <div className="flex">
+                                <figure
+                                    className="p-10 rounded-l-[12px] mr-3 active:bg-crypto-dark"
+                                    onMouseUp={()=> setPopQuantityValue((+popQuantityValue + 0.01).toFixed(2))}
+                                >
+                                    <img src={tradesPopAddIcon} alt=""/>
+                                </figure>
+                                <figure
+                                    className="p-10 rounded-r-[12px] active:bg-crypto-dark mr-4"
+                                    onMouseUp={()=> setPopQuantityValue((+popQuantityValue - 0.01).toFixed(2))}
+                                >
+                                    <img src={tradesPopMinusIcon} alt=""/>
+                                </figure>
+                            </div>
+                        </div>
+                        <div>
+                            <label htmlFor="tradeRange" className="relative flex justify-center items-center block h-24">
+                                <input id="tradeRange"
+                                       type="range"
+                                       min="1"
+                                       max="100"
+                                       list="rangeList"
+                                       className="trade-range absolute appearance-none h-2 w-[calc(100%-32px)] bg-crypto-dark"
+                                       onChange={rangeTrackchange}
+                                       onClick={rangeTrackchange}
+                                       value={rangeVal}
+                                />
+                            </label>
+                            <div className="flex justify-around text-12 pb-16 pt-8">
+                                <div>
+                                    <input
+                                        id="25per"
+                                        value="25per"
+                                        type="radio"
+                                        name="quantityRadio"
+                                        className="hidden"
+                                        onClick={(e)=> {
+                                            rangeTrackchange(e);
+                                            setRangeVal('25');
+                                        }}
+                                        onChange={onRangeValChange}
+                                        checked={rangeValChange === "25per"}
+                                    />
+                                    <label htmlFor="25per" className="flex justify-center items-center w-40 h-40 founded-full rounded-full">
+                                        25%
+                                    </label>
+                                </div>
+                                <div>
+                                    <input
+                                        id="50per"
+                                        value="50per"
+                                        type="radio"
+                                        name="quantityRadio"
+                                        className="hidden"
+                                        onChange={onRangeValChange}
+                                        checked={rangeValChange === "50per"}
+                                    />
+                                    <label htmlFor="50per" className="flex justify-center items-center w-40 h-40 founded-full rounded-full">
+                                        50%
+                                    </label>
+                                </div>
+                                <div>
+                                    <input
+                                        id="75per"
+                                        value="75per"
+                                        type="radio"
+                                        name="quantityRadio"
+                                        className="hidden"
+                                        onChange={onRangeValChange}
+                                        checked={rangeValChange === "75per"}
+                                    />
+                                    <label htmlFor="75per" className="flex justify-center items-center w-40 h-40 founded-full rounded-full">
+                                        75%
+                                    </label>
+                                </div>
+                                <div>
+                                    <input
+                                        id="100per"
+                                        value="100per"
+                                        type="radio"
+                                        name="quantityRadio"
+                                        className="hidden"
+                                        onChange={onRangeValChange}
+                                        checked={rangeValChange === "100per"}
+                                    />
+                                    <label htmlFor="100per" className="flex justify-center items-center w-40 h-40 founded-full rounded-full">
+                                        100%
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </nav>
         </section>
