@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useState} from "react";
 import {coinLi, coinLi2, cryptoHomeItem} from "./constants";
-import {HomeIntroContents, RecentAndTopCoin} from "../components/homContents";
+import {HomeIntroContents, RecentAndTopCoin} from "../components/homeComponent";
 
 
 export const CryptoHome = () => {

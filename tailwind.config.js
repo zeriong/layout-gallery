@@ -52,13 +52,14 @@ module.exports = {
         "crypto-seafoam-blue": "#5ed5a8",
         "crypto-pale-red": "#dd4b4b",
         "crypto-pale-grey": "#f1f4f6",
-        "crypto-light-grey": "#1E252D",
+        "crypto-light-grey": "#21282f",
         "crypto-white": "#ffffff",
         "crypto-cool-grey": "#a7afb7",
         "crypto-dark-two": "#161c22",
         "crypto-warm-grey": "#777777",
         "crypto-silver": "#c1c7cd",
         "crypto-dark-three": "#171d22",
+        "crypto-dark-four": "#1e272e",
         "crypto-ball-dark": "#252e35",
       },
       width:{
@@ -70,7 +71,7 @@ module.exports = {
       padding:{
         'header-height' : '116px',
       },
-      spacing: {...createPxEntries(200), ...createRemEntries(200)},
+      spacing: {...createPxEntries(100), ...createRemEntries(100)},
     },
   },
   plugins: [

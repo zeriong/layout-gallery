@@ -1,5 +1,10 @@
+import {ActivityBoxList, ActivityList} from "../components/activityComponent";
+
 export const CryptoActivity = () => {
     return (
-        <div>activity</div>
+        <section className="w-full min-h-[850px]">
+            <ActivityBoxList/>
+            <ActivityList/>
+        </section>
     )
 }

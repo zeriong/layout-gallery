@@ -4,6 +4,16 @@ import intro3 from "../assets/intro-img3.svg";
 import rocket from "../assets/rocket.svg";
 import credit from "../assets/credit.svg";
 import BTCSmall from "../assets/BTCSmall.svg";
+import BTCIcon from '../assets/BTCIcon.svg';
+import LINKIcon from '../assets/LINKIcon.svg';
+import ADAIcon from '../assets/ADAIcon.svg';
+import SHIBIcon from '../assets/SHIBIcon.svg';
+import MFTIcon from '../assets/MFTIcon.svg';
+import RENIcon from '../assets/RENIcon.svg';
+import emptyCoinIcon from '../assets/emptyCoinIcon.svg';
+import emptyWalletIcon from '../assets/emptyWalletIcon.svg';
+import emptyShoppingCarIcon from '../assets/emptyShoppingCarIcon.svg';
+
 
 interface IintroItem {
     id: string;
@@ -354,5 +364,208 @@ export const tradesOrderBoard2: ItradesOrderBoards = [
         price:'27,486.39',
         vol:'2485.27',
         opt: 'text-crypto-pale-red'
+    },
+]
+interface IwalletList {
+    id:string;
+    img:string;
+    title:string;
+    sub:string;
+    coin:string;
+    amount:string;
+}
+
+interface IwalletLists extends Array<IwalletList> {}
+
+export const walletList: IwalletLists = [
+    {
+        id: 'btcList',
+        img: BTCIcon,
+        title: 'Bitcoin',
+        sub: 'BTC',
+        coin: '32,697.05',
+        amount: '$468,554.23',
+    },
+    {
+        id: 'linkList',
+        img: LINKIcon,
+        title: 'Chainlink',
+        sub: 'LINK',
+        coin: '32,697.05',
+        amount: '$468,554.23',
+    },
+    {
+        id: 'adaList',
+        img: ADAIcon,
+        title: 'Cardano',
+        sub: 'ADA',
+        coin: '32,697.05',
+        amount: '$468,554.23',
+    },
+    {
+        id: 'shibList',
+        img: SHIBIcon,
+        title: 'SHIBA INU',
+        sub: 'SHIB',
+        coin: '32,697.05',
+        amount: '$468,554.23',
+    },
+    {
+        id: 'mftList',
+        img: MFTIcon,
+        title: 'HIFI',
+        sub: 'MFT',
+        coin: '32,697.05',
+        amount: '$468,554.23',
+    },
+    {
+        id: 'renList',
+        img: RENIcon,
+        title: 'REN',
+        sub: 'REN',
+        coin: '32,697.05',
+        amount: '$468,554.23',
+    },
+]
+interface IactivityBoxList {
+    id:string;
+    img:string;
+    title:string;
+}
+
+interface IactivityBoxLists extends Array<IactivityBoxList> {}
+
+export const activityBoxList: IactivityBoxLists = [
+    {
+        id: 'box1',
+        img: emptyCoinIcon,
+        title: 'Deposit',
+    },
+    {
+        id: 'box2',
+        img: emptyWalletIcon,
+        title: 'Withdrawals',
+    },
+    {
+        id: 'box3',
+        img: emptyShoppingCarIcon,
+        title: 'Buy Order',
+    }
+]
+
+interface IrecentActivityList {
+    id:string;
+    log:string;
+    title:string;
+    date:string;
+    amount1:string;
+    amount2:string;
+    price:string;
+    status:string;
+}
+
+interface IrecentActivityLists extends Array<IrecentActivityList> {}
+
+export const activityLists: IrecentActivityLists = [
+    {
+        id:'acti1',
+        log:'L/B',
+        title:'BTC/BUSD',
+        date:'2021-08-02 04:39:26',
+        amount1:'0.49975/',
+        amount2:'0.49975',
+        price:'2652.00',
+        status:'Filled',
+    },
+    {
+        id:'acti2',
+        log:'L/S',
+        title:'BTC/BUSD',
+        date:'2021-08-02 04:39:26',
+        amount1:'0.49975/',
+        amount2:'0.49975',
+        price:'2652.00',
+        status:'Cancelled',
+    },
+    {
+        id:'acti3',
+        log:'L/B',
+        title:'BTC/BUSD',
+        date:'2021-08-02 04:39:26',
+        amount1:'0.49975/',
+        amount2:'0.49975',
+        price:'2652.00',
+        status:'Filled',
+    },
+    {
+        id:'acti4',
+        log:'L/S',
+        title:'BTC/BUSD',
+        date:'2021-08-02 04:39:26',
+        amount1:'0.49975/',
+        amount2:'0.49975',
+        price:'2652.00',
+        status:'Cancelled',
+    },
+]
+interface ImarketList {
+    id:string;
+    img:string;
+    title:string;
+    sub:string;
+    coin:string;
+    rate:string;
+}
+
+interface ImarketLists extends Array<ImarketList> {}
+
+export const marketList: ImarketLists = [
+    {
+        id: 'btcMarket',
+        img: BTCIcon,
+        title: 'Bitcoin',
+        sub: 'BTC',
+        coin: '32,697.05',
+        rate: '+0.81%',
+    },
+    {
+        id: 'linkMarket',
+        img: LINKIcon,
+        title: 'Chainlink',
+        sub: 'LINK',
+        coin: '32,697.05',
+        rate: '-0.81%',
+    },
+    {
+        id: 'adaMarket',
+        img: ADAIcon,
+        title: 'Cardano',
+        sub: 'ADA',
+        coin: '32,697.05',
+        rate: '+0.81%',
+    },
+    {
+        id: 'shibMarket',
+        img: SHIBIcon,
+        title: 'SHIBA INU',
+        sub: 'SHIB',
+        coin: '32,697.05',
+        rate: '-0.81%',
+    },
+    {
+        id: 'mftMarket',
+        img: MFTIcon,
+        title: 'HIFI',
+        sub: 'MFT',
+        coin: '32,697.05',
+        rate: '-0.81%',
+    },
+    {
+        id: 'renMarket',
+        img: RENIcon,
+        title: 'REN',
+        sub: 'REN',
+        coin: '32,697.05',
+        rate: '+0.81%',
     },
 ]

@@ -98,14 +98,37 @@ input, input:focus, input:active {
 .rocket-bg {
     background-image:  url("../apps/crypto/assets/rocketBg.svg");
 }
+.wallets-bg {
+    background-image: url("../apps/crypto/assets/walletsBg.svg");
+    background-size: cover;
+}
+.wallets-bg::before{
+    content: '';
+    opacity: 0.55;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    @apply bg-crypto-ball-dark
+}
+.wallets-gradient {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(22, 28, 34, 0) 0%, #161C22 100%);
+}
+.wallets-gradient-2 {
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(265deg, rgba(27, 35, 42, 0) 115%, #1B232A 33%);
+}
 .rocket-gradient {
     background: linear-gradient(135deg, #1B232A 30.83%, #5ED5A8 173.33%);
 }
 .trade-graph-gradient{
     background: linear-gradient(180deg, rgba(22, 28, 34, 0) 0%, #161C22 100%);
-}
-input[name=tradeNav]:checked + label{
-    @apply bg-crypto-dark text-crypto-silver transition-all duration-300
 }
 input[name=tradeDateNav]:checked + label{
     @apply bg-crypto-ball-dark text-white transition-all duration-300

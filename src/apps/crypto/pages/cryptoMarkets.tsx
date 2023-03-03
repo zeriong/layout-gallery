@@ -1,5 +1,10 @@
+import {MarketList, MarketTab} from "../components/marketComponent";
+
 export const CryptoMarkets = () => {
     return (
-        <div>markets</div>
+        <section className="pt-20 px-24 min-h-[700px]">
+            <MarketTab/>
+            <MarketList/>
+        </section>
     )
 }

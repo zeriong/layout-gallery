@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import {useLocation, useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {RootState, store} from "../../../store";
@@ -13,7 +13,6 @@ import starIcon from "../assets/starIcon.svg";
 import candlesIcon from "../assets/candlesIcon.svg";
 
 import {cryptoMenu1, cryptoMenu2} from "./constants";
-import {useLabels} from "@headlessui/react/dist/components/label/label";
 
 const MenuCreator = (props: {option?:string, path:string, img:string, title:string}) => {
     const menuHandler = () => store.dispatch(MENU_SWITCH());
@@ -40,7 +39,6 @@ const MenuCreator = (props: {option?:string, path:string, img:string, title:stri
 export const Header = () => {
     const isMenuActivated = useSelector((state:RootState) => state.menuHandler.showMenu);
     const menuHandler = () => store.dispatch(MENU_SWITCH());
-    const [isShadow, setIsShadow] = useState(true);
     const location = useLocation();
 
     return (
@@ -86,7 +84,7 @@ export const Header = () => {
             </header>
             <section
                 className={`absolute transition-all duration-300 w-full bg-crypto-dark z-10 top-95 overflow-hidden
-                ${isMenuActivated ? "h-169" : "h-[0vh]"}`}
+                ${isMenuActivated ? "h-[169px]" : "h-0"}`}
             >
                     <div className="grid grid-cols-1 gap-1px bg-crypto-dark">
                         <div className="w-full px-16 bg-crypto-dark-two">

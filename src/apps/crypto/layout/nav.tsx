@@ -23,8 +23,8 @@ const NavLinkItem = (props: {img:string, title:string, path:string, actImg?:stri
 
 export const Nav = () => {
     return (
-        <nav className="w-full max-w-[420px] fixed z-20 bottom-24 px-24">
-            <ul className="grid grid-cols-5 gap-30px px-17 py-12 rounded-[20px] bg-crypto-dark-two shadow-[0_12px_50px_rgba(22,28,34,0.5)]">
+        <nav className="w-full max-w-[420px] fixed z-30 bottom-24 px-24">
+            <ul className="grid grid-cols-5 gap-30px px-17 py-12 rounded-[20px] bg-crypto-dark shadow-[0_12px_50px_rgba(22,28,34,0.5)]">
                 {
                     cryptoNav.map((val) => {
                         return (

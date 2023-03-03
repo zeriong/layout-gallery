@@ -50,10 +50,10 @@ export const CryptoLoginHome = () => {
                 <figure className="-z-10">
                     <img src={starLoad1} className="absolute w-62px h-52px left-42px top-88px" alt=""/>
                     <img src={starLoad2} className="absolute w-59px h-91px right-62px -top-28px" alt=""/>
-                    <img src={starLoad3} className="absolute w-100px h-112px left-330px top-[459px]" alt=""/>
+                    <img src={starLoad3} className="absolute w-100px h-[112px] left-[330px] top-[459px]" alt=""/>
                     <img src={starLoad4} className="absolute w-31px h-84px left-50px top-[578px]" alt=""/>
                 </figure>
-                <div className="relative mt-80 m-sm:mt-115px w-full h-auto p-4 rounded-xl text-14 font-normal bg-crypto-dark-two text-center grid grid-cols-2 gap-4px">
+                <div className="relative mt-80 m-sm:mt-[115px] w-full h-auto p-4 rounded-xl text-14 font-normal bg-crypto-dark-two text-center grid grid-cols-2 gap-4px">
                     <button className={`${onSignIn ? "text-crypto-silver bg-crypto-dark" : "text-crypto-warm-grey"} rounded-xl py-10px`} onClick={signHandler} ref={element}>
                         Sign in
                     </button>
