@@ -6,9 +6,9 @@ import {DeliveryHome} from "../apps/foodDelivery/pages";
 import {AccSettings} from "../apps/foodDelivery/pages/accSettings";
 import {GalleryPage} from "../apps/gallery";
 import {CryptoApp} from "../apps/crypto/layout";
-import {CryptoIntro} from "../apps/crypto/pages/cryptoIntro";
-import {CryptoMarkets} from "../apps/crypto/pages/cryptoMarkets";
-import {CryptoTrades} from "../apps/crypto/pages/cryptoTrades";
+import {Intro} from "../apps/crypto/pages/intro";
+import {Markets} from "../apps/crypto/pages/markets";
+import {Trades} from "../apps/crypto/pages/trades";
 import {CryptoWallets} from "../apps/crypto/pages/wallets";
 import {CryptoActivity} from "../apps/crypto/pages/activity";
 import {CryptoLoginHome} from "../apps/crypto/pages/loginHome";
@@ -30,12 +30,12 @@ export const Index = ()=> {
                 <Route path="/crypto" element={<CryptoApp/>}>
                     <Route path="*" element={<CryptoLayout/>}>
                         <Route index element={<CryptoHome/>}/>
-                        <Route path="markets" element={<CryptoMarkets/>}/>
+                        <Route path="markets" element={<Markets/>}/>
                         <Route path="wallets" element={<CryptoWallets/>}/>
                         <Route path="activity" element={<CryptoActivity/>}/>
-                        <Route path="trades" element={<CryptoTrades/>}/>
+                        <Route path="trades" element={<Trades/>}/>
                     </Route>
-                    <Route path="intro" element={<CryptoIntro/>}/>
+                    <Route path="intro" element={<Intro/>}/>
                     <Route path="signIn" element={<CryptoLoginHome/>}/>
                 </Route>
             </Routes>

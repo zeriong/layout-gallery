@@ -32,7 +32,16 @@ module.exports = {
         'login-home-roll': '-30px 30px 50px -20px rgb(0 0 0 / 0.25)',
       },
       colors:{
-        'landingBack': '#f5f5f5',
+        'gall-gray-100': '#f5f5f5',
+        'gall-gray-200': '#f5f5f5',
+        'gall-gray-300': '#f5f5f5',
+        'gall-header-title-gray': '#f5f5f5',
+        'gall-title-gray': '#f5f5f5',
+        'gall-cate-gray': '#f5f5f5',
+        'gall-desc-gray': '#f5f5f5',
+        'gall-temple-gray': '#f5f5f5',
+        'gall-link-blue': '#f5f5f5',
+
         "neutral-white": "#ffffff",
         "secondary-light": "#fff3ed",
         "neutral-gray": "#83859c",
@@ -60,6 +69,7 @@ module.exports = {
         "crypto-silver": "#c1c7cd",
         "crypto-dark-three": "#171d22",
         "crypto-dark-four": "#1e272e",
+        "crypto-dark-five": "#2E373E",
         "crypto-ball-dark": "#252e35",
       },
       width:{

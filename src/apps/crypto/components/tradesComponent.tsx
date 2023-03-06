@@ -42,11 +42,11 @@ export function TradeOrderTab() {
                         key={'popMarketTab'+i}
                         className={({ selected }) =>
                             classNames(
-                                'py-16 h-full text-center flex justify-center items-center bg-white border-r border-crypto-pale-grey last:border-none',
+                                'py-16 h-full text-center flex justify-center items-center border-r border-crypto-pale-grey last:border-none',
                                 'transition-all duration-300',
                                 selected
                                     ? 'bg-crypto-pale-grey text-crypto-dark'
-                                    : 'text-crypto-cool-grey'
+                                    : 'text-crypto-cool-grey bg-white'
                             )
                         }
                     >
@@ -115,11 +115,11 @@ export function TradeDateTab() {
                             key={'dateTab'+i}
                             className={({ selected }) =>
                                 classNames(
-                                    'py-10 px-30 text-center flex justify-center items-center bg-crypto-dark',
+                                    'py-10 px-30 text-center flex justify-center items-center',
                                     'transition-all duration-300',
                                     selected
                                         ? 'bg-crypto-ball-dark text-white'
-                                        : 'text-crypto-warm-grey'
+                                        : 'text-crypto-warm-grey bg-crypto-dark'
                                 )
                             }
                         >

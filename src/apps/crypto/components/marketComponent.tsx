@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {Tab} from "@headlessui/react";
-import {marketList, walletList} from "../pages/constants";
+import {marketList} from "../pages/constants";
+import {LineGraph} from "../pages/tradeChart";
 
 const classNames = (...classes: any) => {
     return classes.filter(Boolean).join(' ')
@@ -43,11 +44,11 @@ export function MarketTab() {
 
 export const MarketList = () => {
     return (
-        <ul className="w-full h-full min-h-[590px]">
+        <ul className="w-full h-full">
             {
                 marketList.map((val)=>{
                     return (
-                        <li key={val.id} className="flex h-full w-full py-20 text-14 border-b border-crypto-light-grey">
+                        <li key={val.id} className="flex w-full py-20 text-14 border-b border-crypto-light-grey">
                             <figure>
                                 <img src={val.img} className="w-47" alt=""/>
                             </figure>
@@ -60,8 +61,8 @@ export const MarketList = () => {
                                         {val.sub}
                                     </p>
                                 </div>
-                                <div>
-                                    graph
+                                <div className="relative -left-10 h-40">
+                                    <LineGraph upturn={val.upturn} fill={val.fill}/>
                                 </div>
                                 <div className="text-end">
                                     <h1 className="font-bold text-white">

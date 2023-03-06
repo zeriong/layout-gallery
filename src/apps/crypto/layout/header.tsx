@@ -42,7 +42,7 @@ export const Header = () => {
     const location = useLocation();
 
     return (
-        <div className="fixed justify-center flex w-full max-w-[420px] h-auto z-10">
+        <div className="fixed justify-center flex w-full max-w-[420px] h-auto z-50">
             <header
                 className={`fixed justify-center flex w-full max-w-[420px] h-95px bg-crypto-dark z-20 transition-all duration-300
                 ${location.pathname === '/crypto' ? "shadow-none" : "shadow-[0_12px_16px_rgba(22,28,34,0.5)]"}

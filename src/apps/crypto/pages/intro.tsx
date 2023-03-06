@@ -146,7 +146,7 @@ const Carousel = () => {
     );
 }
 
-export const CryptoIntro = () => {
+export const Intro = () => {
     const [popIntro, setpopIntro] = useState(true);
     const popOversetTimeout = () => {
         setTimeout(()=> {

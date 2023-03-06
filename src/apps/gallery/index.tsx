@@ -50,14 +50,12 @@ export const GalleryItems = (props: {
 }
 
 export const GalleryPage = () => {
-    const itemLength: number = galleryItem.length
     return (
-        <div className="h-full w-full bg-landingBack overflow-auto custom-scroll">
-            <header className="block bg-landingBack w-full flex justify-center">
-                <section className="w-full max-w-pageMax px-20 pt-20">
-                    <h1 className="font-bold text-30 sm:text-36 pb-16">Layout Gallery</h1>
-                    <h2 className="pb-16 font-bold sm:text-18">{`📚 등록된 페이지${itemLength}개`}</h2>
-                </section>
+        <div className="gallery-font h-full w-full bg-landingBack overflow-auto custom-scroll">
+            <header className="fixed bg-landingBack w-full flex justify-center">
+                <h1 className="text">
+                    Layout Gallery
+                </h1>
             </header>
             <main className="relative h-full w-full px-24 sm:px-20 sm:w-pageMax m-auto">
                 <ul className="transition-all duration-300 relative w-full grid grid-rows-1 sm:grid-cols-3 sm:justify-start flex-row gap-6 sm:gap-30px">

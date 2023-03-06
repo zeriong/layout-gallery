@@ -1,6 +1,7 @@
 import {useNavigate} from "react-router-dom";
 import rocket from "../assets/rocket.svg";
 import React from "react";
+import {LineGraph} from "../pages/tradeChart";
 
 export const HomeIntroContents = (props: {img:string, title:string, summary:string, opt?:string}) => {
     const navigate = useNavigate();
@@ -24,10 +25,10 @@ export const HomeIntroContents = (props: {img:string, title:string, summary:stri
     )
 }
 
-export const RecentAndTopCoin = (props: {img:string, tag:string, rate:string, price:string}) => {
+export const RecentAndTopCoin = (props: {img:string, tag:string, rate:string, price:string, upturn:boolean, fill:string}) => {
     return (
         <li className="relative top-12 rounded-[16px] shadow-[0_16px_50px_rgba(22,28,34,0.08)] p-12 min-w-[163px] w-[163px] min-h-[118px] h-[118px]">
-            <p className="text-crypto-seafoam-blue font-[700] mb-5">
+            <p className={`${props.upturn ? "text-crypto-seafoam-blue" : "text-crypto-pale-red"} font-[700] mb-5`}>
                 {props.price}
             </p>
             <figure className="absolute top-8 right-8">
@@ -37,13 +38,11 @@ export const RecentAndTopCoin = (props: {img:string, tag:string, rate:string, pr
                 <p className="text-14 font-[400]">
                     {props.tag}
                 </p>
-                <p className="relative -bottom-2 text-12 text-crypto-seafoam-blue font-[400]">
+                <p className={`${props.upturn ? "text-crypto-seafoam-blue" : "text-crypto-pale-red"} relative -bottom-2 text-12 font-[400]`}>
                     {props.rate}
                 </p>
             </div>
-            <div>
-                Graph
-            </div>
+            <LineGraph upturn={props.upturn} fill={props.fill}/>
         </li>
     )
 }

@@ -14,8 +14,9 @@ import tradesArrow from '../assets/tradesArrow.svg'
 import tradesAddIcon from '../assets/tradesAddIcon.svg'
 import tradesPopMinusIcon from '../assets/tradesPopMinusIcon.svg'
 import tradesPopAddIcon from '../assets/tradesPopAddIcon.svg'
+import {Chart} from "./tradeChart";
 
-export const CryptoTrades = () => {
+export const Trades = () => {
     const [popPriceValue, setPopPriceValue] = useState<string | number>(38418.49);
     const [popQuantityValue, setPopQuantityValue] = useState<string | number>(38418.490);
     const [isPopUp, setIsPopUp] = useState<boolean>(false);
@@ -33,7 +34,7 @@ export const CryptoTrades = () => {
                         <TradeConvertTab/>
                     </div>
                     <div className="mt-24">
-                        <div className="absolute left-24">
+                        <div className="absolute left-24 z-30">
                             <div className="flex items-center gap-8px">
                                 <h1 className="text-white text-28 font-bold">
                                     40,059.83
@@ -54,7 +55,7 @@ export const CryptoTrades = () => {
                         <div className="flex w-full">
                             <div className="w-[calc(100%-70px)]">
                                 <div className="flex justify-center items-center h-[258px]">
-                                    Graph
+                                    <Chart/>
                                 </div>
                                 <div className="grid grid-cols-5 text-center text-12 py-16 text-crypto-warm-grey">
                                     {tradesTimes.map((val) => <TradesTimeList key={val.id} time={val.time}/>)}
