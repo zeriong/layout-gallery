@@ -11,7 +11,7 @@ import {deliveryFoodList, deliveryIntroEvent, deliveryRestaurantList} from "./co
 
 const IntroEvent = (props: {title:string, food?:string, img:string, summary?:string, bg?:string, text?:string}) => {
     return (
-        <div className={`flex flex-col-reverse sm:flex sm:flex-row w-full h-[276px] sm:h-188px rounded-2xl ${props.bg}`}>
+        <div className={`flex flex-col-reverse sm:flex sm:flex-row w-full h-[276px] sm:h-[188px] rounded-2xl ${props.bg}`}>
             <figure className="m-auto sm:m-0">
                 <img src={props.img} alt=""/>
             </figure>
@@ -59,7 +59,7 @@ const RestaurantList = ( props: {
     const navigate = useNavigate();
     return(
         <li className="w-full h-[276px] rounded-2xl overflow-hidden border border-neutral-gray-lightest" onClick={()=>navigate('acc-settings')}>
-            <figure className="relative flex items-center overflow-hidden h-160px cursor-pointer">
+            <figure className="relative flex items-center overflow-hidden h-[160px] cursor-pointer">
                 {
                     props.featured ? (
                         <p className="absolute flex items-center bg-primary-default text-white px-16 py-8 font-bold text-11 rounded-bl-xl right-0 top-0 h-32">
@@ -69,7 +69,7 @@ const RestaurantList = ( props: {
                 }
                 <img src={props.img} className="w-full h-auto" alt=""/>
             </figure>
-            <article className="flex w-full h-full max-h-116px flex-col justify-between p-16">
+            <article className="flex w-full h-full max-h-[116px] flex-col justify-between p-16">
                 <div className="w-full">
                     <div className="flex relative mb-6">
                         <h1 className="text-lg text-neutral-black font-bold cursor-pointer">

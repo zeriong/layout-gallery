@@ -22,7 +22,7 @@ import {IloginHomeUser, loginHomeUserList} from "./constants";
 const Profile = ({gender, date, review, star, name, bad, like}: IloginHomeUser) => {
     return (
         <li className="flex flex-row w-full mb-14 [&:not(:last-child)]:border-b border-b-neutral-gray-lightest">
-            <div className="w-40 mr-11 w-full">
+            <div className="w-40 mr-11">
                 {
                     gender === "woman" ? <img src={userWoman} alt=""/> :
                         gender === "man" ? <img src={userMan} alt=""/> : ""
@@ -73,14 +73,16 @@ export const LoginHome = () => {
 
     return (
         <main className="relative flex w-full h-full overflow-auto justify-center transition-all duration-300 sm:min-w-[1440px] sm:min-h-[860px]">
-            <section className="flex bg-neutral-white w-full min-h-[839px] sm:h-auto sm:w-[44.4%] justify-center items-center overflow-hidden">
-                <div className="flex flex-col justify-between w-full h-full sm:max-w-[640px] sm:h-auto px-15 sm:pl-165 sm:pr-125">
+            <section className="flex bg-neutral-white w-full min-h-[839px] sm:h-auto sm:w-[44.4%] justify-center items-center">
+                <div className="flex flex-col justify-between w-full h-full sm:max-w-[640px] sm:h-auto px-15 sm:pl-[165px] sm:pr-[125px]">
                     <figure>
-                        <img src={loginLogo} className={"pb-60 w-80 pt-20 sm:pt-20 sm:pb-128"} alt=""/>
+                        <img src={loginLogo} className={"pb-60 w-80 pt-20 sm:pt-20 sm:pb-[128px]"} alt=""/>
                     </figure>
                     <article>
                         <div>
-                            <p className="text-60 leading-tight font-bold text-neutral-black h-82 cursor-default">Login</p>
+                            <p className="text-60 leading-tight font-bold text-neutral-black h-82 cursor-default">
+                                Login
+                            </p>
                             <p className="leading-normal text-neutral-gray-dark pt-12 pb-32">
                                 Sign in with your data that you entered during your registration.
                             </p>
@@ -103,7 +105,9 @@ export const LoginHome = () => {
                                     placeholder="min, 8 characters"
                                     className="rounded-lg border border-neutral-gray-light p-12 w-full text-14 h-44 mb-28 relative"
                                 />
-                                <img src={eyeIcon} className="absolute bottom-40 right-12 cursor-pointer" alt=""/>
+                                <figure>
+                                    <img src={eyeIcon} className="absolute bottom-40 right-12 cursor-pointer" alt=""/>
+                                </figure>
                             </div>
                             <div className="flex items-center mb-40">
                                 <input onChange={checkHandler} type="checkbox" id="remember-check" className="hidden"/>
@@ -112,10 +116,14 @@ export const LoginHome = () => {
                                     className={`relative w-20 h-20 rounded border-2  cursor-pointer flex justify-center items-center
                                     ${check ? "bg-primary-default border-primary-default" : "border-neutral-gray-light"}`}
                                 >
-                                    <img src={checkIcon} className={`${check ? "block" : "hidden"}`} alt=""/>
+                                    <figure>
+                                        <img src={checkIcon} className={`${check ? "block" : "hidden"}`} alt=""/>
+                                    </figure>
                                 </label>
-                                <label htmlFor="remember-check"
-                                       className="text-14 text-neutral-black pl-12 cursor-pointer w-full">
+                                <label
+                                    htmlFor="remember-check"
+                                    className="text-14 text-neutral-black pl-12 cursor-pointer w-full"
+                                >
                                     Keep me logged in
                                 </label>
                             </div>
@@ -123,21 +131,29 @@ export const LoginHome = () => {
                                 Login
                             </button>
                         </form>
-                        <Link to="food-delivery" className="flex justify-center mb-134 sm:mb-106 text-white w-full text-primary-default font-bold text-14">
-                            <p>Forgot password</p>
+                        <Link to="food-delivery" className="flex justify-center mb-[134px] sm:mb-[106px] text-white w-full text-primary-default font-bold text-14">
+                            <p>
+                                Forgot password
+                            </p>
                         </Link>
                     </article>
                     <div className="flex justify-center items-center h-20 mb-40">
-                        <p className="leading-normal mr-4">Don't have an account?</p>
-                        <Link to="/food-delivery" className="text-12 leading-normal text-primary-default">Sign up</Link>
+                        <p className="leading-normal mr-4">
+                            Don't have an account?
+                        </p>
+                        <Link to="/food-delivery" className="text-12 leading-normal text-primary-default">
+                            Sign up
+                        </Link>
                     </div>
                 </div>
             </section>
             <section className="flex bg-primary-hover w-full sm:w-[55.6%] justify-center items-center overflow-hidden max-sm:hidden">
                 <div className="max-w-[800px] pl-65 pr-71 pt-48 pb-84">
-                    <section className="relative flex pb-145">
+                    <section className="relative flex pb-[145px]">
                         <article className="relative flex flex-col ml-30 w-[313px] h-[436.4px] border-neutral-gray-lightest bg-neutral-white rounded-2xl p-15 overflow-hidden">
-                            <p className="text-12 font-bold text-neutral-black">Overall rating</p>
+                            <p className="text-12 font-bold text-neutral-black">
+                                Overall rating
+                            </p>
                             <div className="flex items-center h-25 mb-25">
                                 <p className="h-25 mr-12 text-primary-default">4.2</p>
                                 <figure className="flex items-center mr-4">
@@ -147,16 +163,24 @@ export const LoginHome = () => {
                                     <img src={fiiedStar} alt=""/>
                                     <img src={emptyStar} alt=""/>
                                 </figure>
-                                <p className="leading-mormal font-bold text-10 text-neutral-gray">3 votes</p>
+                                <p className="leading-mormal font-bold text-10 text-neutral-gray">
+                                    3 votes
+                                </p>
                             </div>
                             <p className="absolute left-0 top-71 w-full h-1 bg-neutral-gray-lightest"/>
-                            <span className="absolute py-[10px] px-[14px] right-[14px] top-4 rounded-lg border text-primary-default border-primary-default text-[14px] font-bold">
+                            <span className="absolute py-[10px] px-[14px] right-[14px] top-13 rounded-lg border text-primary-default border-primary-default text-[14px] font-bold">
                                 Leave review
                             </span>
                             <p className="flex text-left rounded-lg border border-neutral-gray-light py-8 px-11 w-fit mx-auto">
-                                <span className="text-14 leading-normal font-bold text-neutral-gray">Sort by:</span>
-                                <span className="text-14 leading-normal font-bold mr-8 ml-1 text-neutral-black">Newest first</span>
-                                <img src={downArrow} alt=""/>
+                                <span className="text-14 leading-normal font-bold text-neutral-gray mr-5">
+                                    Sort by:
+                                </span>
+                                <span className="text-14 leading-normal font-bold mr-8 ml-1 text-neutral-black">
+                                    Newest first
+                                </span>
+                                <figure className="flex items-center">
+                                    <img src={downArrow} alt=""/>
+                                </figure>
                             </p>
                             <ul className="mt-22">
                                 {
@@ -176,34 +200,50 @@ export const LoginHome = () => {
                             </ul>
                         </article>
                         <article className="bg-neutral-white p-13 w-[294px] h-[279px] rounded-xl ml-27 mt-32 shadow-login-home-roll">
-                            <p className="w-[267px] h-151 rounded-lg overflow-hidden">
-                                <img src={CFNroll} alt=""></img>
+                            <p className="w-[267px] h-[151px] rounded-lg overflow-hidden">
+                                <img src={CFNroll} alt=""/>
                             </p>
-                            <h1 className="mt-10 font-bold text-16 text-neutral-black">Roll set</h1>
-                            <p className="text-11 font-normal tracking-[0.2px] text-neutral-gray h-31 mb-10">Ea his sensibus eleifend, mollis iudicabit omittantur id mel. Et cum ignota euismod corpora, et saepe.</p>
+                            <h1 className="mt-10 font-bold text-16 text-neutral-black">
+                                Roll set
+                            </h1>
+                            <p className="text-11 font-normal tracking-[0.2px] text-neutral-gray h-31 mb-10">
+                                Ea his sensibus eleifend, mollis iudicabit omittantur id mel. Et cum ignota euismod corpora, et saepe.
+                            </p>
                             <span className="flex justify-between items-center h-27">
-                                <p className="font-extrabold text-22 leading-[1.33] text-neutral-black">$ 22.56</p>
+                                <p className="font-extrabold text-22 leading-[1.33] text-neutral-black">
+                                    $ 22.56
+                                </p>
                                 <svg className="p-5 bg-primary-light w-27 h-27 rounded-[10px]" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M9.12 4.22v9.8M4.22 9.12h9.8" stroke="#4E60FF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                                 </svg>
                             </span>
                         </article>
-                        <article className="absolute justify-between flex w-[618px] h-132 bottom-68 p-14 bg-neutral-white rounded-xl shadow-login-home-nigiri">
+                        <article className="absolute justify-between flex w-[618px] h-[132px] bottom-68 p-14 bg-neutral-white rounded-xl shadow-login-home-nigiri">
                             <div className="flex">
-                                <p className="w-152 h-105 rounded-lg mr-17 overflow-hidden">
+                                <figure className="w-[152px] h-[105px] rounded-lg mr-17 overflow-hidden">
                                     <img src={sushi} className="relative bottom-44" alt=""/>
-                                </p>
+                                </figure>
                                 <div className="w-[270px]">
-                                    <h1 className="mt-10 font-bold text-16 text-neutral-black">Nigiri set</h1>
-                                    <p className="text-11 font-normal tracking-[0.2px] text-neutral-gray h-31 mb-10">Ea his sensibus eleifend, mollis iudicabit omittantur id mel. Et cum ignota euismod corpora, et saepe.</p>
-                                    <p className="font-extrabold text-22 h-28 text-neutral-black leading-[1.33]">$ 16.80</p>
+                                    <h1 className="mt-10 font-bold text-16 text-neutral-black">
+                                        Nigiri set
+                                    </h1>
+                                    <p className="text-11 font-normal tracking-[0.2px] text-neutral-gray h-31 mb-10">
+                                        Ea his sensibus eleifend, mollis iudicabit omittantur id mel. Et cum ignota euismod corpora, et saepe.
+                                    </p>
+                                    <p className="font-extrabold text-22 h-28 text-neutral-black leading-[1.33]">
+                                        $ 16.80
+                                    </p>
                                 </div>
                             </div>
-                            <div className="flex flex-col justify-between h-68 w-113 mt-32">
+                            <div className="flex flex-col justify-between h-68 w-[113px] mt-32">
                                 <div className="flex mx-auto text-12 font-bold text-neutral-black">
                                     <img src={minusIcon} alt=""/>
-                                    <p className="mx-5">1</p>
-                                    <img src={plusIcon} alt=""/>
+                                    <p className="mx-5">
+                                        1
+                                    </p>
+                                    <figure>
+                                        <img src={plusIcon} alt=""/>
+                                    </figure>
                                 </div>
                                 <div className="flex px-14 py-10 bg-primary-light rounded-xl">
                                     <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -225,12 +265,12 @@ export const LoginHome = () => {
                         </p>
                     </article>
                     <ul className="flex justify-center">
-                        <p className="flex gap-8px">
+                        <figure className="flex gap-8px">
                             <img src={emptyBall} alt=""/>
                             <img src={filledBall} alt=""/>
                             <img src={emptyBall} alt=""/>
                             <img src={emptyBall} alt=""/>
-                        </p>
+                        </figure>
                     </ul>
                 </div>
             </section>

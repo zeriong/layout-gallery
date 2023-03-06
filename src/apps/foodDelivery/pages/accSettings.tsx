@@ -102,7 +102,7 @@ export const AccSettings = () => {
                         Personal information
                     </h1>
                     <div className="py-16">
-                        <p className="text-12px font-[600] text-neutral-gray-dark mb-8">
+                        <p className="text-12 font-[600] text-neutral-gray-dark mb-8">
                             Avatar
                         </p>
                         <div className="flex items-center">
