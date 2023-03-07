@@ -59,7 +59,7 @@ const RestaurantList = ( props: {
     const navigate = useNavigate();
     return(
         <li className="w-full h-[276px] rounded-2xl overflow-hidden border border-neutral-gray-lightest" onClick={()=>navigate('acc-settings')}>
-            <figure className="relative flex items-center overflow-hidden h-[160px] cursor-pointer">
+            <div className="relative flex items-center overflow-hidden h-[160px] cursor-pointer">
                 {
                     props.featured ? (
                         <p className="absolute flex items-center bg-primary-default text-white px-16 py-8 font-bold text-11 rounded-bl-xl right-0 top-0 h-32">
@@ -68,14 +68,14 @@ const RestaurantList = ( props: {
                     ) : ""
                 }
                 <img src={props.img} className="w-full h-auto" alt=""/>
-            </figure>
+            </div>
             <article className="flex w-full h-full max-h-[116px] flex-col justify-between p-16">
                 <div className="w-full">
                     <div className="flex relative mb-6">
                         <h1 className="text-lg text-neutral-black font-bold cursor-pointer">
                             {props.title}
                         </h1>
-                        <figure className="absolute right-0 cursor-pointer">
+                        <div className="absolute right-0 cursor-pointer">
                             {props.shopingBag === 0 ? (
                                 <img src={emptyShopingBag} alt=""/>
                             ) : (
@@ -86,7 +86,7 @@ const RestaurantList = ( props: {
                                     <img src={filledShopingBag} alt=""/>
                                 </div>
                             )}
-                        </figure>
+                        </div>
                     </div>
                     <div className="flex items-center text-neutral-gray font-[600] text-12">
                         <img src={clockIcon} alt=""/>
@@ -104,7 +104,7 @@ const RestaurantList = ( props: {
                         props.tagIcon?.map((val,i) => {
                             return (
                                 <li key={i+"tagIcon"} className="w-fit bg-neutral-gray-lightest rounded-xl">
-                                    <figure className="flex justify-center items-center h-24 py-6 px-10 cursor-pointer">
+                                    <div className="flex justify-center items-center h-24 py-6 px-10 cursor-pointer">
                                         <img src={val} className="w-12" alt=""/>
                                         <p className="text-neutral-gray-dark text-12 font-[600] ml-8">
                                             {
@@ -113,7 +113,7 @@ const RestaurantList = ( props: {
                                                         val=== burgerI ? "Burger" : ""
                                             }
                                         </p>
-                                    </figure>
+                                    </div>
                                 </li>
                             )
                         })

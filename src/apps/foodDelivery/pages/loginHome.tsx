@@ -32,27 +32,29 @@ const Profile = ({gender, date, review, star, name, bad, like}: IloginHomeUser) 
                 <h1 className="h-18 text-14 font-bold text-neutral-black">
                     {name}
                 </h1>
-                <figure className="flex">
+                <div className="flex">
                     <img src={star >= 1 ? fiiedStar : emptyStar} alt=""/>
                     <img src={star >= 2 ? fiiedStar : emptyStar} alt=""/>
                     <img src={star >= 3 ? fiiedStar : emptyStar} alt=""/>
                     <img src={star >= 4 ? fiiedStar : emptyStar} alt=""/>
                     <img src={star === 5 ? fiiedStar : emptyStar} alt=""/>
-                    <p className="font-bold text-neutral-gray text-10 ml-4">{date}</p>
-                </figure>
+                    <div className="font-bold text-neutral-gray text-10 ml-4">
+                        {date}
+                    </div>
+                </div>
                 <h2 className="text-13 text-neutral-black mt-11">
                     {review}
                 </h2>
-                <figure className="flex items-center h-30 w-full mt-4 mb-14">
+                <div className="flex items-center h-30 w-full mt-4 mb-14">
                     <img src={likeIcon} className={"mr-1"} alt=""/>
-                    <p className="mr-12 text-12 font-semibold text-neutral-gray-dark">
+                    <div className="mr-12 text-12 font-semibold text-neutral-gray-dark">
                         {like}
-                    </p>
+                    </div>
                     <img src={badIcon} className={"mr-1"} alt=""/>
-                    <p className="mr-12 text-12 font-semibold text-neutral-gray">
+                    <div className="mr-12 text-12 font-semibold text-neutral-gray">
                         {bad}
-                    </p>
-                </figure>
+                    </div>
+                </div>
             </article>
         </li>
     )
@@ -72,7 +74,7 @@ export const LoginHome = () => {
     }
 
     return (
-        <main className="relative flex w-full h-full overflow-auto justify-center transition-all duration-300 sm:min-w-[1440px] sm:min-h-[860px]">
+        <>
             <section className="flex bg-neutral-white w-full min-h-[839px] sm:h-auto sm:w-[44.4%] justify-center items-center">
                 <div className="flex flex-col justify-between w-full h-full sm:max-w-[640px] sm:h-auto px-15 sm:pl-[165px] sm:pr-[125px]">
                     <figure>
@@ -141,7 +143,7 @@ export const LoginHome = () => {
                         <p className="leading-normal mr-4">
                             Don't have an account?
                         </p>
-                        <Link to="/food-delivery" className="text-12 leading-normal text-primary-default">
+                        <Link to="/food-delivery" className="text-12 font-bold leading-normal text-primary-default">
                             Sign up
                         </Link>
                     </div>
@@ -155,7 +157,9 @@ export const LoginHome = () => {
                                 Overall rating
                             </p>
                             <div className="flex items-center h-25 mb-25">
-                                <p className="h-25 mr-12 text-primary-default">4.2</p>
+                                <p className="h-25 mr-12 text-primary-default">
+                                    4.2
+                                </p>
                                 <figure className="flex items-center mr-4">
                                     <img src={fiiedStar} alt=""/>
                                     <img src={fiiedStar} alt=""/>
@@ -167,11 +171,11 @@ export const LoginHome = () => {
                                     3 votes
                                 </p>
                             </div>
-                            <p className="absolute left-0 top-71 w-full h-1 bg-neutral-gray-lightest"/>
+                            <div className="absolute left-0 top-71 w-full h-1 bg-neutral-gray-lightest"/>
                             <span className="absolute py-[10px] px-[14px] right-[14px] top-13 rounded-lg border text-primary-default border-primary-default text-[14px] font-bold">
                                 Leave review
                             </span>
-                            <p className="flex text-left rounded-lg border border-neutral-gray-light py-8 px-11 w-fit mx-auto">
+                            <div className="flex text-left rounded-lg border border-neutral-gray-light py-8 px-11 w-fit mx-auto">
                                 <span className="text-14 leading-normal font-bold text-neutral-gray mr-5">
                                     Sort by:
                                 </span>
@@ -181,7 +185,7 @@ export const LoginHome = () => {
                                 <figure className="flex items-center">
                                     <img src={downArrow} alt=""/>
                                 </figure>
-                            </p>
+                            </div>
                             <ul className="mt-22">
                                 {
                                     loginHomeUserList.map((val,i) => {
@@ -200,9 +204,9 @@ export const LoginHome = () => {
                             </ul>
                         </article>
                         <article className="bg-neutral-white p-13 w-[294px] h-[279px] rounded-xl ml-27 mt-32 shadow-login-home-roll">
-                            <p className="w-[267px] h-[151px] rounded-lg overflow-hidden">
+                            <figure className="w-[267px] h-[151px] rounded-lg overflow-hidden">
                                 <img src={CFNroll} alt=""/>
-                            </p>
+                            </figure>
                             <h1 className="mt-10 font-bold text-16 text-neutral-black">
                                 Roll set
                             </h1>
@@ -274,6 +278,6 @@ export const LoginHome = () => {
                     </ul>
                 </div>
             </section>
-        </main>
+        </>
     )
 }

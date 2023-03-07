@@ -75,7 +75,7 @@ export const AccSettings = () => {
         navigate('/food-delivery');
     }
     const logout = () => {
-        navigate('/food-delivery-login');
+        navigate('/food-delivery/signIn');
     }
     return (
         <section className="w-full grid sm:flex gap-48px sm:gap-30px">
@@ -138,16 +138,16 @@ export const AccSettings = () => {
                             })
                         }
                     </ul>
-                    <button onClick={logout} className="cursor-pointer flex sm:hidden border border-error-default rounded-xl justify-center py-12 px-16 bg-white text-14 font-bold text-error-default mb-20">
+                    <button onClick={logout} className="w-full flex sm:hidden border border-error-default rounded-xl justify-center py-12 px-16 bg-white text-14 font-bold text-error-default mb-20">
                         Log out
                     </button>
                 </div>
                 <div className="flex justify-between border-b border-x rounded-b-2xl border-neutral-gray-lightest py-20 px-16">
-                    <button onClick={logout} className="cursor-pointer hidden sm:flex border border-error-default rounded-lg justify-center items-center py-12 px-16 bg-white text-14 font-bold text-error-default">
+                    <button onClick={logout} className="hidden sm:flex border border-error-default rounded-lg justify-center items-center py-12 px-16 bg-white text-14 font-bold text-error-default">
                         Log out
                     </button>
                     <div className="w-full sm:w-auto flex gap-16px">
-                        <button onClick={goHome} className="cursor-pointer w-full sm:w-auto flex border border-error-default rounded-lg justify-center items-center py-12 px-16 bg-white text-14 font-bold text-error-default">
+                        <button onClick={goHome} className="cursor-pointer whitespace-nowrap w-full sm:w-auto flex border border-neutral-gray rounded-lg justify-center items-center py-12 px-16 bg-white text-14 font-bold text-neutral-gray">
                             Discard changes
                         </button>
                         <button onClick={goHome} className="cursor-pointer w-full sm:w-auto flex rounded-lg justify-center items-center py-12 px-16 bg-primary-default text-14 font-bold text-white">

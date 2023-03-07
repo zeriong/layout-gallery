@@ -55,25 +55,25 @@ export const Header = () => {
                         {
                             location.pathname === '/crypto/trades' ? (
                                 <>
-                                    <button>
+                                    <button type="button">
                                         <img src={candlesIcon} alt=""/>
                                     </button>
-                                    <button>
+                                    <button type="button">
                                         <img src={buyIcon} alt=""/>
                                     </button>
-                                    <button>
+                                    <button type="button">
                                         <img src={starIcon} alt=""/>
                                     </button>
                                 </>
                             ) : (
                                 <>
-                                    <button>
+                                    <button type="button">
                                         <img src={searchIcon} alt=""/>
                                     </button>
-                                    <button>
+                                    <button type="button">
                                         <img src={scanIcon} alt=""/>
                                     </button>
-                                    <button>
+                                    <button type="button">
                                         <img src={noticeIcon} alt=""/>
                                     </button>
                                 </>

@@ -15,7 +15,7 @@ interface IgalleryItems extends Array<IgalleryItem> {}
 export const galleryItem:IgalleryItems = [
     {
         id: "delivery",
-        path: "/food-delivery-login",
+        path: "/food-delivery/signIn",
         name: "Food Delivery",
         desc: "음식배달 웹페이지 레이아웃 레퍼런스이다. 제플린을 적극 사용하여 만든 레이아웃이다.",
         img: deliveryPreview,

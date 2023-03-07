@@ -1,6 +1,6 @@
 import React from "react";
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
-import {FoodDeliveryLayout} from "../apps/foodDelivery/layout";
+import {FoodDelivery} from "../apps/foodDelivery/layout";
 import {LoginHome} from "../apps/foodDelivery/pages/loginHome";
 import {DeliveryHome} from "../apps/foodDelivery/pages";
 import {AccSettings} from "../apps/foodDelivery/pages/accSettings";
@@ -14,6 +14,7 @@ import {CryptoActivity} from "../apps/crypto/pages/activity";
 import {CryptoLoginHome} from "../apps/crypto/pages/loginHome";
 import {CryptoHome} from "../apps/crypto/pages";
 import {CryptoLayout} from "../apps/crypto/layout/wrap";
+import {FoodDeliveryLayout} from "../apps/foodDelivery/layout/wrap";
 
 
 export const Index = ()=> {
@@ -21,10 +22,13 @@ export const Index = ()=> {
         <Router>
             <Routes>
                 <Route path="/" element={<GalleryPage/>}/>
-                <Route path="/food-delivery-login" element={<LoginHome/>}/>
-                <Route path="/food-delivery" element={<FoodDeliveryLayout/>}>
-                    <Route index element={<DeliveryHome/>}/>
-                    <Route path="acc-settings" element={<AccSettings/>}/>
+
+                <Route path="/food-delivery" element={<FoodDelivery/>}>
+                    <Route path="*" element={<FoodDeliveryLayout/>}>
+                        <Route index element={<DeliveryHome/>}/>
+                        <Route path="acc-settings" element={<AccSettings/>}/>
+                    </Route>
+                    <Route path="signIn" element={<LoginHome/>}/>
                 </Route>
 
                 <Route path="/crypto" element={<CryptoApp/>}>

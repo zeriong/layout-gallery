@@ -136,6 +136,7 @@ const Carousel = () => {
                     <li className={`w-12 h-12 rounded-full ${currentSlide === 2 ? "bg-crypto-warm-grey" : "bg-crypto-ball-dark"}`}/>
                 </ul>
                 <button
+                    type="button"
                     className="w-[45%] h-full bg-crypto-seafoam-blue text-18 font-medium text-crypto-dark-three py-[3%] rounded-2xl mt-40 shadow-[0_20px_60px_rgba(94,213,168,0.16)]"
                     onClick={nextBtn}
                 >

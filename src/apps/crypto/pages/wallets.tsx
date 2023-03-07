@@ -17,7 +17,7 @@ export const CryptoWallets = () => {
                     <p className="font-normal text-crypto-warm-grey text-14">
                         Current Balance
                     </p>
-                    <button className="absolute flex justify-center items-center right-24 top-0 w-44 h-44 rounded-full bg-crypto-dark">
+                    <button className="absolute flex justify-center items-center right-24 top-0 w-44 h-44 rounded-full bg-crypto-dark" type="button">
                             {
                                 isShowBalance ? <AiFillEye className="w-44 h-44 p-10px fill-crypto-warm-grey" size="100" onClick={showBalance}/> :
                                     <img src={invisible} className="" alt="" onClick={showBalance}/>

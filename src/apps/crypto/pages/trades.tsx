@@ -80,6 +80,7 @@ export const Trades = () => {
                             setIsPopUp(true);
                             setIsBuy(true);
                         }}
+                        type="button"
                     >
                         Buy
                     </button>
@@ -89,6 +90,7 @@ export const Trades = () => {
                             setIsPopUp(true);
                             setIsBuy(false);
                         }}
+                        type="button"
                     >
                         Sell
                     </button>
@@ -191,6 +193,7 @@ export const Trades = () => {
                         <button
                             className={`w-full  text-center py-16 rounded-[16px] transition-all duration-200
                             ${isBuy ? 'bg-crypto-seafoam-blue' : 'bg-crypto-pale-red'}`}
+                            type="button"
                         >
                             {isBuy ? "Buy" : "Sell"}
                         </button>

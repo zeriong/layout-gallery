@@ -54,10 +54,19 @@ export const CryptoLoginHome = () => {
                     <img src={starLoad4} className="absolute w-31px h-84px left-50px top-[578px]" alt=""/>
                 </figure>
                 <div className="relative mt-80 m-sm:mt-[115px] w-full h-auto p-4 rounded-xl text-14 font-normal bg-crypto-dark-two text-center grid grid-cols-2 gap-4px">
-                    <button className={`${onSignIn ? "text-crypto-silver bg-crypto-dark" : "text-crypto-warm-grey"} rounded-xl py-10px`} onClick={signHandler} ref={element}>
+                    <button
+                        className={`${onSignIn ? "text-crypto-silver bg-crypto-dark" : "text-crypto-warm-grey"} rounded-xl py-10px`}
+                        onClick={signHandler}
+                        ref={element}
+                        type="button"
+                    >
                         Sign in
                     </button>
-                    <button className={`${onSignUp ? "text-crypto-silver bg-crypto-dark" : "text-crypto-warm-grey"} rounded-xl `} onClick={signHandler}>
+                    <button
+                        className={`${onSignUp ? "text-crypto-silver bg-crypto-dark" : "text-crypto-warm-grey"} rounded-xl `}
+                        onClick={signHandler}
+                        type="button"
+                    >
                         Sign up
                     </button>
                 </div>
@@ -91,34 +100,56 @@ export const CryptoLoginHome = () => {
                             }
                         </div>
                     </div>
-                    <button onClick={goHome} className="mt-8 text-crypto-seafoam-blue text-13 m-sm:text-14 block">
+                    <button
+                        onClick={goHome}
+                        className="mt-8 text-crypto-seafoam-blue text-13 m-sm:text-14 block"
+                        type="button"
+                    >
                         Forgot password?
                     </button>
-                    <button onClick={goHome} className="mt-28 m-sm:mt-40 py-12 m-sm:py-16 w-full h-auto block text-center rounded-2xl bg-crypto-seafoam-blue text-16 m-sm:text-18 text-crypto-dark-three font-medium">
+                    <button
+                        onClick={goHome}
+                        className="mt-28 m-sm:mt-40 py-12 m-sm:py-16 w-full h-auto block text-center rounded-2xl bg-crypto-seafoam-blue text-16 m-sm:text-18 text-crypto-dark-three font-medium"
+                        type="button"
+                    >
                         Sign in
                     </button>
                 </form>
                 <div className="w-full h-fit flex relative mt-16 m-sm:mt-20">
                     <div className="absolute h-1 w-full bg-crypto-ball-dark opacity-50 top-1/2 -translate-y-1/2"/>
-                    <button onClick={goHome} className="relative z-30 text-12 m-sm:text-14 text-crypto-warm-grey text-center block w-fit m-auto px-9 bg-crypto-dark">
+                    <button
+                        onClick={goHome}
+                        className="relative z-30 text-12 m-sm:text-14 text-crypto-warm-grey text-center block w-fit m-auto px-9 bg-crypto-dark"
+                        type="button"
+                    >
                         Or login with
                     </button>
                 </div>
                 <div className="mt-16 m-sm:mt-20 grid grid-cols-2 gap-20px">
-                    <button onClick={goHome} className="flex relative justify-center items-center py-9 m-sm:py-16 bg-white rounded-2xl text-crypto-dark text-13 m-sm:text-14">
+                    <button
+                        onClick={goHome}
+                        className="flex relative justify-center items-center py-9 m-sm:py-16 bg-white rounded-2xl text-crypto-dark text-13 m-sm:text-14"
+                        type="button"
+                    >
                         <img src={facebook} className="mr-10" alt=""/>
                         <p>
                             Facebook
                         </p>
                     </button>
-                    <button onClick={goHome} className="flex justify-center items-center py-9 m-sm:py-16 bg-white rounded-2xl text-crypto-dark text-13 m-sm:text-14">
+                    <button
+                        onClick={goHome}
+                        className="flex justify-center items-center py-9 m-sm:py-16 bg-white rounded-2xl text-crypto-dark text-13 m-sm:text-14"
+                        type="button"
+                    >
                         <img src={google} className="mr-10" alt=""/>
                         <p>
                             Google
                         </p>
                     </button>
                 </div>
-                <img src={fingerID} onClick={goHome} className="fixed bottom-47 left-1/2 -translate-x-1/2 cursor-pointer" alt=""/>
+                <figure>
+                    <img src={fingerID} onClick={goHome} className="fixed bottom-47 left-1/2 -translate-x-1/2 cursor-pointer" alt=""/>
+                </figure>
             </div>
         </section>
     )

@@ -12,45 +12,44 @@ export const Chart = () => {
 }
 const CandleChart = () => {
     return (
-        <>
-            <svg className="absolute w-[calc(100%-25px)] h-full pl-10 z-20">
-                {
-                    chartCandleList.map((val,i) => {
-                        const h = Math.abs(val.close - val.open);
-                        const hStart = 258 - val.open;
+        <svg className="absolute w-[calc(100%-25px)] h-full pl-10 z-20">
+            {
+                chartCandleList.map((val,i) => {
+                    const h = Math.abs(val.close - val.open);
+                    const hStart = 258 - val.open;
 
-                        const lineStart = 258 - val.high;
-                        const lineEnd = 258 - val.low;
+                    const lineStart = 258 - val.high;
+                    const lineEnd = 258 - val.low;
 
-                        const fill = val.close > val.open ? "fill-crypto-seafoam-blue" : "fill-crypto-pale-red";
-                        const stroke = val.close > val.open ? "stroke-crypto-seafoam-blue" : "stroke-crypto-pale-red";
+                    const fill = val.close > val.open ? "fill-crypto-seafoam-blue" : "fill-crypto-pale-red";
+                    const stroke = val.close > val.open ? "stroke-crypto-seafoam-blue" : "stroke-crypto-pale-red";
 
-                        return (
-                            <>
-                                <line
-                                    x1={11.5 * (i+1) + 2.5}
-                                    x2={11.5 * (i+1) + 2.5}
-                                    y1={lineStart}
-                                    y2={lineEnd}
-                                    strokeWidth={1}
-                                    className={stroke}
-                                />
-                                <rect
-                                    key={val.id}
-                                    x={11.5 * (i+1)}
-                                    y={val.close > val.open ? (hStart - h) : (hStart)}
-                                    width={5}
-                                    height={h}
-                                    rx={5}
-                                    ry={3}
-                                    className={fill}
-                                />
-                            </>
-                        )
-                    })
-                }
-            </svg>
-        </>
+                    return (
+                        <svg key={"svg"+val.id}>
+                            <line
+                                key={"line"+val.id}
+                                x1={11.5 * (i+1) + 2.5}
+                                x2={11.5 * (i+1) + 2.5}
+                                y1={lineStart}
+                                y2={lineEnd}
+                                strokeWidth={1}
+                                className={stroke}
+                            />
+                            <rect
+                                key={val.id}
+                                x={11.5 * (i+1)}
+                                y={val.close > val.open ? (hStart - h) : (hStart)}
+                                width={5}
+                                height={h}
+                                rx={5}
+                                ry={3}
+                                className={fill}
+                            />
+                        </svg>
+                    )
+                })
+            }
+        </svg>
     )
 }
 const VolumeChart = () => {
