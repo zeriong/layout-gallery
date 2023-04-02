@@ -7,15 +7,29 @@ export const TradesTimeList = (props: {time:string}) => {
 export const TradesPriceList = (props: {price:string}) => {
     return <p>{props.price}</p>
 }
-export const TradesOrderBoard = (props: {price:string, vol:string, opt:string, opt2?:string}) => {
+export const TradesOrderBoard = (props: {price:string, vol:string, upturn:boolean, opt?:string, candle:number}) => {
     return (
-        <div className="flex justify-between">
-            <p className={`text-crypto-dark font-normal ${props.opt2}`}>
-                {props.price}
-            </p>
-            <p className={`${props.opt} font-normal`}>
-                {props.vol}
-            </p>
+        <div className="relative block h-18">
+            <div className="absolute w-full flex justify-between z-10">
+                <p className={`text-crypto-dark font-normal ${props.opt}`}>
+                    {props.price}
+                </p>
+                <p
+                    className={`${props.upturn ? "text-crypto-seafoam-blue" : "text-crypto-pale-red"}
+                     ${props.opt} font-normal`}
+                >
+                    {props.vol}
+                </p>
+            </div>
+            <svg className="relative w-full h-full">
+                <rect
+                    x={175 - props.candle}
+                    y={0}
+                    width={props.candle}
+                    height={18}
+                    className={`opacity-[12%] ${props.upturn ? "fill-crypto-seafoam-blue" : "fill-crypto-pale-red"}`}
+                />
+            </svg>
         </div>
     )
 }

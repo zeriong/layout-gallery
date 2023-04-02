@@ -1,5 +1,5 @@
-import React from "react";
-import {chartCandleList, chartVolList} from "./constants";
+import React, {useEffect, useRef, useState} from "react";
+import {chartVolList} from "./constants";
 
 
 export const Chart = () => {
@@ -10,44 +10,144 @@ export const Chart = () => {
         </div>
     )
 }
+
+interface IchartCandleList {
+    id: string;
+    open: number;
+    close: number;
+    high: number;
+    low: number;
+}
+
+interface IchartCandleLists extends Array<IchartCandleList> {}
+
 const CandleChart = () => {
+    const svgRef = useRef<any>(null);
+    const dayTable = 27;
+
+    const [loading, setLoading] = useState<boolean>(true);
+
+    const _random = (e: number) => Math.floor(Math.random() * e);
+    const makeMin = (a: number, b:number) => Math.min(a,b);
+    const makeMax = (a: number, b:number) => Math.max(a,b);
+
+    const [candleList, setCandleList] = useState<IchartCandleLists>([]);
+    console.log('초기화')
+
+    const makeCandle = () => {
+        const arr:any = [];
+        const randomH = svgRef.current.clientHeight + 1;
+        for( let i=0; i < dayTable; i++ ) {
+            if (i === 0) {
+                let open = _random(randomH / 2);
+                let close = _random(randomH / 2);
+                const min = makeMin(open, close);
+                const max = makeMax(open, close);
+                const high = max + _random((randomH - max) / 2);
+                const low = _random(min + 1);
+
+                if (open === 0) {
+                    const loop = ()=> {
+                        open = _random(randomH / 2);
+                        if (open === 0) loop();
+                    };
+                    loop();
+                }
+                if (close === 0) {
+                    const loop = ()=> {
+                        close = _random(randomH / 2);
+                        if (close === 0) loop();
+                    };
+                    loop();
+                }
+
+                arr.push({
+                    id: "D" + (i + 1),
+                    open: open,
+                    close: close,
+                    high: high,
+                    low: low,
+                });
+            }
+            if (i !== 0) {
+                const open = arr[i-1].close;
+                let close = _random(randomH / 2);
+                const min = makeMin(open, close);
+                const max = makeMax(open, close);
+                const high = max + _random((randomH - max) / 3);
+                const low = _random(min + 1);
+
+                if (close === 0) {
+                    const loop = ()=> {
+                        close = _random(randomH / 2);
+                        if (close === 0) loop();
+                    };
+                    loop();
+                }
+
+                arr.push({
+                    id: "D" + (i+1),
+                    open: open,
+                    close: close,
+                    high: high,
+                    low: low,
+                });
+            }
+        }
+        setLoading(false);
+        setCandleList(arr);
+    }
+
+    useEffect(()=> makeCandle(),[]);
+
     return (
-        <svg className="absolute w-[calc(100%-25px)] h-full pl-10 z-20">
+        <svg
+            ref={svgRef}
+            className="absolute w-[calc(100%-25px)] h-full pl-10 z-20"
+        >
             {
-                chartCandleList.map((val,i) => {
-                    const h = Math.abs(val.close - val.open);
-                    const hStart = 258 - val.open;
+                !loading && (
+                    <>
+                        {
+                            candleList?.map((val,i) => {
+                                console.log('로딩?', loading)
+                                console.log(candleList)
+                                const h = Math.abs(val.close - val.open);
+                                const hStart = svgRef.current.clientHeight - val.open;
 
-                    const lineStart = 258 - val.high;
-                    const lineEnd = 258 - val.low;
+                                const lineStart = svgRef.current.clientHeight - val.high;
+                                const lineEnd = svgRef.current.clientHeight - val.low;
 
-                    const fill = val.close > val.open ? "fill-crypto-seafoam-blue" : "fill-crypto-pale-red";
-                    const stroke = val.close > val.open ? "stroke-crypto-seafoam-blue" : "stroke-crypto-pale-red";
+                                const fill = val.close > val.open ? "fill-crypto-seafoam-blue" : "fill-crypto-pale-red";
+                                const stroke = val.close > val.open ? "stroke-crypto-seafoam-blue" : "stroke-crypto-pale-red";
 
-                    return (
-                        <svg key={"svg"+val.id}>
-                            <line
-                                key={"line"+val.id}
-                                x1={11.5 * (i+1) + 2.5}
-                                x2={11.5 * (i+1) + 2.5}
-                                y1={lineStart}
-                                y2={lineEnd}
-                                strokeWidth={1}
-                                className={stroke}
-                            />
-                            <rect
-                                key={val.id}
-                                x={11.5 * (i+1)}
-                                y={val.close > val.open ? (hStart - h) : (hStart)}
-                                width={5}
-                                height={h}
-                                rx={5}
-                                ry={3}
-                                className={fill}
-                            />
-                        </svg>
-                    )
-                })
+                                return (
+                                    <svg key={val.id}>
+                                        <line
+                                            key={"line"+val.id}
+                                            x1={11.5 * (i+1) + 2.5}
+                                            x2={11.5 * (i+1) + 2.5}
+                                            y1={lineStart}
+                                            y2={lineEnd}
+                                            strokeWidth={1}
+                                            className={stroke}
+                                        />
+                                        <rect
+                                            key={val.id}
+                                            x={11.5 * (i+1)}
+                                            y={val.close > val.open ? (hStart - h) : (hStart)}
+                                            width={5}
+                                            height={h}
+                                            rx={5}
+                                            ry={3}
+                                            className={fill}
+                                        />
+                                    </svg>
+                                )
+                            })
+                        }
+                    </>
+                )
             }
         </svg>
     )
@@ -83,11 +183,11 @@ export const LineGraph = (props: {upturn:boolean, fill:string}) => {
         [0, 30], [20, 12], [30, 22], [40, 20], [50, 32],
         [60, 14], [70, 25], [80, 18], [90, 18], [100, 10],
         [110, 20], [120, 9], [140, 10],
-        [142,50],
+        [142, 50],
     ];
     const smoothing = 0.2;
 
-    const line = (pointA:any, pointB:any) => {
+    const line = (pointA: any, pointB: any) => {
         // 좌표 설정
         const lengthX = pointB[0] - pointA[0]
         const lengthY = pointB[1] - pointA[1]
@@ -97,7 +197,7 @@ export const LineGraph = (props: {upturn:boolean, fill:string}) => {
             angle: Math.atan2(lengthY, lengthX)
         }
     }
-    const controlPoint = (current:number[], previous:number[], next:number, reverse?:boolean) => {
+    const controlPoint = (current: number[], previous: number[], next: number, reverse?: boolean) => {
         // current가 배열의 첫번쨰거나 마지막 점일때 previous나 next가 아닌 current로 대체한다.
         const p = previous || current
         const n = next || current
@@ -115,7 +215,7 @@ export const LineGraph = (props: {upturn:boolean, fill:string}) => {
         return [x, y]
     }
 
-    const bezierCommand = (point:any, i:any, a:any) => {
+    const bezierCommand = (point: any, i: any, a: any) => {
         //컨트롤포인트의 시작지점
         const C_P_Start = controlPoint(a[i - 1], a[i - 2], point);
         // 끝나는 지점
@@ -129,8 +229,8 @@ export const LineGraph = (props: {upturn:boolean, fill:string}) => {
         );
     }
     const d = points.reduce((acc, point, i, a) => i === 0
-            ? ( `M ${point[0]},${point[1]} z` )
-            : ( `${acc} ${bezierCommand(point, i, a)}` )
+            ? (`M ${point[0]},${point[1]} z`)
+            : (`${acc} ${bezierCommand(point, i, a)}`)
         , '');
     return (
         <svg className="w-full h-50 overflow-hidden">

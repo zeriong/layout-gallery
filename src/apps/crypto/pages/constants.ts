@@ -24,7 +24,9 @@ import emptyCoinIcon from '../assets/emptyCoinIcon.svg';
 import emptyWalletIcon from '../assets/emptyWalletIcon.svg';
 import emptyShoppingCarIcon from '../assets/emptyShoppingCarIcon.svg';
 
-
+const _random = (e: number) => {
+    return Math.floor(Math.random() * e)
+}
 interface IintroItem {
     id: string;
     img: string;
@@ -239,32 +241,13 @@ export const tradesPrices: ItradesPrices = [
         price: '64,000.00',
     },
 ]
-interface ItradesOrder {
-    value: string;
-    title: string;
-}
-
-interface ItradesOrders extends Array<ItradesOrder> {}
-export const tradesOrder: ItradesOrders = [
-    {
-        value: 'openOrder',
-        title: 'Open Order (2)',
-    },
-    {
-        value: 'OrderBooks',
-        title: 'Order Books',
-    },
-    {
-        value: 'MarketTrades',
-        title: 'Market Trades',
-    },
-]
 interface ItradesOrderBoard {
     id:string;
     price: string;
     vol: string;
-    opt: string;
-    opt2?:string;
+    upturn:boolean;
+    candle: number;
+    opt?: string;
 }
 
 interface ItradesOrderBoards extends Array<ItradesOrderBoard> {}
@@ -273,61 +256,71 @@ export const tradesOrderBoard: ItradesOrderBoards = [
         id:'vol1',
         price:'27,486.39',
         vol:'2485.27',
-        opt: 'text-crypto-seafoam-blue'
+        upturn: true,
+        candle: _random(176),
     },
     {
         id:'vol2',
         price:'27,486.39',
         vol:'2485.27',
-        opt: 'text-crypto-seafoam-blue'
+        upturn: true,
+        candle: _random(176),
     },
     {
         id:'vol3',
         price:'27,486.39',
         vol:'2485.27',
-        opt: 'text-crypto-seafoam-blue'
+        upturn: true,
+        candle: _random(176),
     },
     {
         id:'vol4',
         price:'27,486.39',
         vol:'2485.27',
-        opt: 'text-crypto-seafoam-blue'
+        upturn: true,
+        candle: _random(176),
     },
     {
         id:'vol5',
         price:'27,486.39',
         vol:'2485.27',
-        opt: 'text-crypto-seafoam-blue'
+        upturn: true,
+        candle: _random(176),
     },
     {
         id:'vol6',
         price:'27,486.39',
         vol:'2485.27',
-        opt: 'text-crypto-seafoam-blue'
+        upturn: true,
+        candle: _random(176),
     },
     {
         id:'vol7',
         price:'27,486.39',
         vol:'2485.27',
-        opt: 'text-crypto-seafoam-blue'
+        upturn: true,
+        candle: _random(176),
     },
     {
         id:'vol8',
         price:'27,486.39',
         vol:'2485.27',
-        opt: 'text-crypto-seafoam-blue'
+        upturn: true,
+        candle: _random(176),
     },
     {
         id:'vol9',
         price:'27,486.39',
         vol:'2485.27',
-        opt: 'text-crypto-seafoam-blue'
+        upturn: true,
+        candle: _random(176),
     },
     {
         id:'vol10',
         price:'27,486.39',
         vol:'2485.27',
-        opt: 'text-crypto-seafoam-blue'
+        upturn: true,
+        candle: _random(176),
     },
 ]
 export const tradesOrderBoard2: ItradesOrderBoards = [
@@ -335,62 +328,72 @@ export const tradesOrderBoard2: ItradesOrderBoards = [
         id:'vol1',
         price:'27,486.39',
         vol:'2485.27',
-        opt: 'text-crypto-pale-red'
+        upturn: false,
+        candle: _random(176),
     },
     {
         id:'vol2',
         price:'27,486.39',
         vol:'2485.27',
-        opt: 'text-crypto-pale-red'
+        upturn: false,
+        candle: _random(176),
     },
     {
         id:'vol3',
         price:'27,486.39',
         vol:'2485.27',
-        opt: 'text-crypto-pale-red'
+        upturn: false,
+        candle: _random(176),
     },
     {
         id:'vol4',
         price:'27,486.39',
         vol:'2485.27',
-        opt: 'text-crypto-pale-red'
+        upturn: false,
+        candle: _random(176),
     },
     {
         id:'vol5',
         price:'`',
         vol:'`',
         opt: 'text-transparent select-none',
-        opt2: 'text-transparent select-none',
+        upturn: false,
+        candle: 0,
     },
     {
         id:'vol6',
         price:'27,486.39',
         vol:'2485.27',
-        opt: 'text-crypto-pale-red'
+        upturn: false,
+        candle: _random(176),
     },
     {
         id:'vol7',
         price:'27,486.39',
         vol:'2485.27',
-        opt: 'text-crypto-pale-red'
+        upturn: false,
+        candle: _random(176),
     },
     {
         id:'vol8',
         price:'27,486.39',
         vol:'2485.27',
-        opt: 'text-crypto-pale-red'
+        upturn: false,
+        candle: _random(176),
     },
     {
         id:'vol9',
         price:'27,486.39',
         vol:'2485.27',
-        opt: 'text-crypto-pale-red'
+        upturn: false,
+        candle: _random(176),
     },
     {
         id:'vol10',
         price:'27,486.39',
         vol:'2485.27',
-        opt: 'text-crypto-pale-red'
+        upturn: false,
+        candle: _random(176),
     },
 ]
 interface IwalletList {
@@ -611,216 +614,12 @@ export const marketList: ImarketLists = [
     },
 ]
 
-interface IchartCandleList {
-    id: string;
-    open: number;
-    close: number;
-    high: number;
-    low: number;
-}
-interface IchartCandleLists extends Array<IchartCandleList> {}
-export const chartCandleList: IchartCandleLists = [
-    {
-        id: "D1",
-        open: 15,
-        close: 80,
-        high: 85,
-        low: 15,
-    },
-    {
-        id: "D2",
-        open: 80,
-        close: 120,
-        high: 150,
-        low: 80,
-    },
-    {
-        id: "D3",
-        open: 120,
-        close: 100,
-        high: 150,
-        low: 90,
-    },
-    {
-        id: "D4",
-        open: 100,
-        close: 60,
-        high: 100,
-        low: 40,
-    },
-    {
-        id: "D5",
-        open: 60,
-        close: 40,
-        high: 70,
-        low: 20,
-    },
-    {
-        id: "D6",
-        open: 40,
-        close: 100,
-        high: 115,
-        low: 37,
-    },
-    {
-        id: "D7",
-        open: 100,
-        close: 150,
-        high: 180,
-        low: 95,
-    },
-    {
-        id: "D8",
-        open: 150,
-        close: 180,
-        high: 190,
-        low: 140,
-    },
-    {
-        id: "D9",
-        open: 180,
-        close: 160,
-        high: 200,
-        low: 130,
-    },
-    {
-        id: "D10",
-        open: 160,
-        close: 150,
-        high: 170,
-        low: 100,
-    },
-    {
-        id: "D11",
-        open: 150,
-        close: 120,
-        high: 150,
-        low: 90,
-    },
-    {
-        id: "D12",
-        open: 120,
-        close: 80,
-        high: 135,
-        low: 40,
-    },
-    {
-        id: "D13",
-        open: 80,
-        close: 90,
-        high: 100,
-        low: 60,
-    },
-    {
-        id: "D14",
-        open: 90,
-        close: 95,
-        high: 100,
-        low: 80,
-    },
-    {
-        id: "D15",
-        open: 95,
-        close: 70,
-        high: 108,
-        low: 70,
-    },
-    {
-        id: "D16",
-        open: 70,
-        close: 120,
-        high: 120,
-        low: 45,
-    },
-    {
-        id: "D17",
-        open: 120,
-        close: 130,
-        high: 140,
-        low: 100,
-    },
-    {
-        id: "D18",
-        open: 130,
-        close: 150,
-        high: 170,
-        low: 97,
-    },
-    {
-        id: "D19",
-        open: 150,
-        close: 100,
-        high: 155,
-        low: 89,
-    },
-    {
-        id: "D20",
-        open: 100,
-        close: 140,
-        high: 160,
-        low: 100,
-    },
-    {
-        id: "D21",
-        open: 140,
-        close: 160,
-        high: 180,
-        low: 67,
-    },
-    {
-        id: "D22",
-        open: 160,
-        close: 50,
-        high: 170,
-        low: 44,
-    },
-    {
-        id: "D23",
-        open: 50,
-        close: 100,
-        high: 108,
-        low: 37,
-    },
-    {
-        id: "D24",
-        open: 100,
-        close: 90,
-        high: 102,
-        low: 70,
-    },
-    {
-        id: "D25",
-        open: 90,
-        close: 60,
-        high: 100,
-        low: 50,
-    },
-    {
-        id: "D26",
-        open: 60,
-        close: 150,
-        high: 170,
-        low: 30,
-    },
-    {
-        id: "D27",
-        open: 150,
-        close: 200,
-        high: 220,
-        low: 110,
-    },
-];
-
 interface IchartVolList {
     id: number;
     volume: number;
 }
 interface IchartVolLists extends Array<IchartVolList> {}
 export const chartVolList : IchartVolLists = [];
-
-const _random = (e: number) => {
-    return Math.floor(Math.random() * e)
-}
 
 for (let i = 0; i < 27; i++) {
     chartVolList.push({

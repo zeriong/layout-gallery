@@ -5,7 +5,6 @@ import {Nav} from "./nav";
 import {useSelector} from "react-redux";
 import {RootState} from "../../../store";
 
-
 export const CryptoLayout = () => {
     const isMenuActivated = useSelector((state:RootState) => state.menuHandler.showMenu);
     const location = useLocation();

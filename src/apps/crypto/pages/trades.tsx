@@ -101,9 +101,9 @@ export const Trades = () => {
                         <p className="text-crypto-cool-grey pb-4 pl-24 border-b border-crypto-pale-grey">
                             Bid
                         </p>
-                        <div className="pr-10 pl-24 pt-12">
+                        <div className="pr-10 pl-24 pt-12 w-full">
                             {
-                                tradesOrderBoard.map((val) => <TradesOrderBoard key={val.id} price={val.price} vol={val.vol} opt={val.opt}/>)
+                                tradesOrderBoard.map((val) => <TradesOrderBoard key={val.id} candle={val.candle} price={val.price} vol={val.vol} opt={val.opt} upturn={val.upturn}/>)
                             }
                         </div>
                     </div>
@@ -113,7 +113,7 @@ export const Trades = () => {
                         </p>
                         <div className="pr-24 pl-10 pt-12">
                             {
-                                tradesOrderBoard2.map((val) => <TradesOrderBoard key={val.id} price={val.price} vol={val.vol} opt={val.opt} opt2={val.opt2}/>)
+                                tradesOrderBoard2.map((val) => <TradesOrderBoard key={val.id} candle={val.candle} price={val.price} vol={val.vol} opt={val.opt} upturn={val.upturn}/>)
                             }
                         </div>
                     </div>

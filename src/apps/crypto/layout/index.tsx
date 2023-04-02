@@ -1,5 +1,6 @@
 import React from "react";
 import {Outlet} from "react-router-dom";
+import {LinkToGallery} from "../../gallery/linkToGallery";
 
 export const CryptoApp = () => {
     return (
@@ -7,6 +8,7 @@ export const CryptoApp = () => {
             <main className="max-w-[420px] h-full overflow-auto bg-crypto-dark m-auto scroll-hidden">
                 <Outlet/>
             </main>
+            <LinkToGallery/>
         </div>
     )
 }

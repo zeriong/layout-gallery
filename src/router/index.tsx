@@ -16,7 +16,6 @@ import {CryptoHome} from "../apps/crypto/pages";
 import {CryptoLayout} from "../apps/crypto/layout/wrap";
 import {FoodDeliveryLayout} from "../apps/foodDelivery/layout/wrap";
 
-
 export const Index = ()=> {
     return (
         <Router>

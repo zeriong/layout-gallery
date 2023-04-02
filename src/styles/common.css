@@ -47,23 +47,36 @@ input, input:focus, input:active {
 *:focus {
     outline-width: 0;
 }
-
+.msg-box{
+    clip-path: polygon(93% 69%, 63% 69%, 100% 100%);
+}
 .custom-scroll::-webkit-scrollbar{
     width: 10px;
+    height: 10px;
+    background-color: transparent;
 }
 .custom-scroll::-webkit-scrollbar-thumb{
     height: 50%;
-    background-color: #cccccc;
+    background-color: #a1a1a1;
     border-radius: 8px;
 }
 .custom-scroll::-webkit-scrollbar-track{
-    margin-top: 116px;
+    margin-top: 80px;
     background-color: transparent;
 }
 
-.mobile-scroll {
-    touch-action: pan-x;
+.gall-desc-scroll::-webkit-scrollbar-thumb{
+    height: 50%;
+    border-radius: 8px;
+    @apply bg-gall-gray-100
 }
+.gall-desc-scroll::-webkit-scrollbar-track-piece{
+    background-color: transparent;
+}
+.gall-desc-scroll::-webkit-scrollbar{
+    width: 3px;
+}
+
 
 .scroll-hidden::-webkit-scrollbar {
     display: none;
