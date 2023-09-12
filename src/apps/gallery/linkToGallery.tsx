@@ -31,7 +31,7 @@ export const LinkToGallery = () => {
                 onClick={stop}
             >
                 <div className="text-gall-gray-300 font-bold">
-                    갤러리 화면으로 돌아거려면 <br/>
+                    갤러리 화면으로 돌아가려면<br/>
                     <span className="font-extrabold text-20">
                         "Link to Gallery"
                     </span>
